@@ -3,21 +3,21 @@
 var Sequelize = require('sequelize');
 var db = require('../../config/database.js');
 
-/*var Todo = db.define('todo', {
+var Todo = db.define('todo', {
 description: Sequelize.STRING
-});*/
-
-
-var User = db.define('user', {
-	pseudo: Sequelize.STRING,
-	ville: Sequilize.STRING,
-	email:Sequelize.STRING,
-	mdp: Sequelize.STRING
-
 });
 
-//Todo.sync().then(function(){});
-User.sync().then(function(){});
+
+/*var User = db.define('user', {
+	pseudo: Sequelize.STRING,
+	ville: Sequilize.STRING,
+	email: Sequelize.STRING,
+	mdp: Sequelize.STRING
+
+});*/
+
+Todo.sync().then(function(){});
+//User.sync().then(function(){});
 
 
 module.exports.create = function(req, res) {
