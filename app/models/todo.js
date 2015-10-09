@@ -10,7 +10,7 @@ description: Sequelize.STRING
 
 var User = db.define('user', {
 	pseudo: Sequelize.STRING,
-	ville: Sequilize.STRING,
+	ville: Sequelize.STRING,
 	email:Sequelize.STRING,
 	mdp: Sequelize.STRING
 
