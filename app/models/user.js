@@ -1,14 +1,14 @@
-// MODEL TODO
+// MODEL USER
 
 var Sequelize = require('sequelize');
 var db = require('../../config/database.js');
 
-/*var Todo = db.define('Todo', {
+/*var User = db.define('User', {
 description: Sequelize.STRING
 });*/
 
 
-var todo = db.define('todo', {
+var User = db.define('user', {
 	pseudo: Sequelize.STRING,
 	ville: Sequelize.STRING,
 	email:Sequelize.STRING,
@@ -16,12 +16,12 @@ var todo = db.define('todo', {
 
 });
 
-//Todo.sync().then(function(){});
-todo.sync().then(function(){});
+//User.sync().then(function(){});
+User.sync().then(function(){});
 
 
 module.exports.create = function(req, res) {
-	todo.create({
+	User.create({
 		pseudo: req.body.nickname,
 		ville: req.body.ville,
 		email: req.body.email,
@@ -32,13 +32,13 @@ module.exports.create = function(req, res) {
 };
 
 module.exports.findAll = function(req, res) {
-	todo.findAll().then(function (data) {
+	User.findAll().then(function (data) {
 		res.json(data);
 	});
 };
 
 module.exports.update = function(req, res){
-	todo.update({
+	User.update({
 		pseudo: req.body.pseudo,
 		ville: req.body.ville,
 		email: req.body.email,
@@ -53,7 +53,7 @@ module.exports.update = function(req, res){
 }
 
 module.exports.delete = function(req, res){
-	todo.destroy({
+	User.destroy({
 		where: {
 			id: req.params.id
 		}

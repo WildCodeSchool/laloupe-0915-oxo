@@ -1,10 +1,10 @@
 // MAIN CONTROLLER
-function mainController($scope, $http, todoService, $location) {
+function mainController($scope, $http, userService, $location) {
 	$scope.title = "Bienvenue sur OXO";
 
 	function load(){
-		todoService.get().then(function(res){
-			$scope.todos = res.data;
+		userService.get().then(function(res){
+			$scope.uers = res.data;
 
 		});
 	}
@@ -13,7 +13,7 @@ function mainController($scope, $http, todoService, $location) {
 		var data = {};
 		data.description = $scope.description;
 
-		todoService.create(data).then(function(res){
+		userService.create(data).then(function(res){
 			load();
 
 		});
@@ -21,20 +21,20 @@ function mainController($scope, $http, todoService, $location) {
 		$scope.description = "";
 	}
 
-	$scope.update = function(todo){
-		todoService.update(todo.id, todo).then(function(res){
+	$scope.update = function(user){
+		userService.update(user.id, user).then(function(res){
 			load();
 		});
 	}
 
-	$scope.delete = function(todo){
-		todoService.delete(todo.id).then(function(res){
+	$scope.delete = function(user){
+		userService.delete(user.id).then(function(res){
 			load();
 		});
 	}
 
 	$scope.register = function(){
-		$location.path('/about');	
+		$location.path('/about');
 	}
 
 	load();

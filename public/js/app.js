@@ -30,6 +30,6 @@ angular.module('app', ['ngRoute', 'ngMessages'])
     .controller('mainController', mainController)
     .controller('aboutController', aboutController)
     .controller('connecterController', connecterController)
-    .service('todoService', todoService)
+    .service('userService', userService)
     /*.factory('', )*/
     .run(run);
