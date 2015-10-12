@@ -11,8 +11,11 @@ function config($routeProvider) {
 		.when('/connecter', {
 			templateUrl: 'views/connecter.html',
 			controller: 'connecterController'
-
 		})
+        .when('VideosGames' {
+              templateUrl: 'views/list_vg.html',
+              controller: 'views/list_vgController.js
+        })
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -30,6 +33,8 @@ angular.module('app', ['ngRoute', 'ngMessages'])
     .controller('mainController', mainController)
     .controller('aboutController', aboutController)
     .controller('connecterController', connecterController)
+    .controller('list_vgController', list_vgController)
     .service('userService', userService)
+    .service('list_vgService', list_vgService)
     /*.factory('', )*/
     .run(run);
