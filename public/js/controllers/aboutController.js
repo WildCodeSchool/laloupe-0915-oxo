@@ -1,7 +1,7 @@
 // about CONTROLLER
 function aboutController($scope, $http, userService, $location) {
 	$scope.title = "S'inscrire";
-	$scope.EMAIL_REGEXP = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+	$scope.EMAIL_REGEXP = /^[a-zA-Z0-9._]+@[a-z]+\.[a-z.]{2,3}$/;
 
 	function load(){
 		userService.get().then(function(res){
