@@ -1,7 +1,13 @@
 //LIST VIDEOS GAMES SERVICE
-function userService($http) {
+function list_vgService($http) {
 		return {
-			get : function() {
-				return $http.get('/https://videogamesrating.p.mashape.com/get.php');
-		}
-};
+			get : function(param) {
+                var header = { headers : {
+                        Accept: 'application/json',
+                        Authorization: 'Token token="123"'
+                    }
+                };
+				return $http.get('https://www.igdb.com/api/v1/games', header);
+            }
+        }
+}

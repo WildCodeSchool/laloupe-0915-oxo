@@ -12,9 +12,9 @@ function config($routeProvider) {
 			templateUrl: 'views/connecter.html',
 			controller: 'connecterController'
 		})
-        .when('VideosGames' {
+        .when('/VideosGames', {
               templateUrl: 'views/list_vg.html',
-              controller: 'views/list_vgController.js
+              controller: 'list_vgController'
         })
 		.otherwise({
 			redirectTo: '/'

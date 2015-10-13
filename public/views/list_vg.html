@@ -1,0 +1,15 @@
+<h1>Liste des jeux-vidéos</h1>
+<form class="form-horizontal" name="myform">
+	<div class="form-group">
+		<label class="col-sm-2">Cherchez votre jeux:</label>
+		<div class="col-sm-10">
+			<input  ng-model="jeux" type="text" name="jeux">
+		</div>
+        <button ng-click="get()">get</button>
+	</div>
+	
+	<ul>
+	    <li ng-repeat="game in games">
+	        <p>{{ game }} </p>
+	    </li>
+	</ul>
