@@ -2,8 +2,8 @@
 function list_vgController($scope, list_vgService) {
     $scope.get = function(){
         list_vgService.get($scope.jeux).then(function(res){
-            $scope.games= res.data;
-            console.log(data)
+            console.log(JSON.parse(res.data));
+            $scope.games = JSON.parse(res.data);
         });
     }
 }

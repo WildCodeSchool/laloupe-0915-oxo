@@ -2,12 +2,7 @@
 function list_vgService($http) {
 		return {
 			get : function(param) {
-                var header = { headers : {
-                        Accept: 'application/json',
-                        Authorization: 'Token token="123"'
-                    }
-                };
-				return $http.get('https://www.igdb.com/api/v1/games', header);
-            }
+				return $http.jsonp('http://www.giantbomb.com/api/search/?api_key=763bf3053c5f0506cbaffd8c9ea343e8dd4834e2&format=json&query=' + param + '&resources=game');
         }
+}
 }
