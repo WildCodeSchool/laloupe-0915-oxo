@@ -28,7 +28,7 @@ function run($rootScope, $location){
 	});
 }
 
-angular.module('app', ['ngRoute', 'ngMessages'])
+angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .config(config)
     .controller('mainController', mainController)
     .controller('aboutController', aboutController)

@@ -7,9 +7,9 @@
 		</div>
         <button ng-click="get()">get</button>
 	</div>
-	
+	<p>{{games.number_of_total_results}}</p>
 	<ul>
-	    <li ng-repeat="game in games">
-	        <p>{{ game }} </p>
-	    </li>
+	    <div class="bs-callout bs-callout-info" ng-repeat="game in games.results | orderBy: '-original_release_date'">
+	        <p>{{ game.name }} </p>
+        </div>
 	</ul>
