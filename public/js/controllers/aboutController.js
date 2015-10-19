@@ -10,16 +10,16 @@ function aboutController($scope, $http, userService, $location) {
 	}
 
 	$scope.send = function(){
-		var data = {};
+		/*$var data = {};
 		data.ville = $scope.ville;
-		data.email = $scope.field;
+		data.email = $scope.field;*/
 
 		$location.path('/connecter');
 
-		userService.create(data).then(function(res){
+		/*userService.create(data).then(function(res){
 			load();
 		});
-			console.log(data);
+			console.log(data);*/
 	}
 
 	load();

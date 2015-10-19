@@ -1,8 +1,8 @@
 function config($routeProvider) {
 	$routeProvider
 		.when('/', {
-			templateUrl: 'views/main.html',
-			controller: 'mainController'
+			templateUrl: 'views/login.html',
+			controller: 'loginController'
 		})
 		.when('/about', {
 			templateUrl: 'views/about.html',
@@ -11,11 +11,6 @@ function config($routeProvider) {
 		.when('/connecter', {
 			templateUrl: 'views/connecter.html',
 			controller: 'connecterController'
-
-		})
-		.when('/login', {
-			templateUrl: 'views/login.html',
-			controller: 'loginController'
 
 		})
 		.otherwise({

@@ -14,4 +14,8 @@ function loginController($scope, $http, loginService, $location) {
 			}
 		});
 	}
+
+	$scope.register = function(){
+		$location.path('/about');
+	}
 }
