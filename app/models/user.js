@@ -1,4 +1,4 @@
-// MODEL USER
+ // MODEL USER
 
 var Sequelize = require('sequelize');
 var db = require('../../config/database.js');
@@ -11,7 +11,7 @@ description: Sequelize.STRING
 var User = db.define('user', {
 	pseudo: Sequelize.STRING,
 	ville: Sequelize.STRING,
-	email:Sequelize.STRING,
+	email: Sequelize.STRING,
 	mdp: Sequelize.STRING
 
 });

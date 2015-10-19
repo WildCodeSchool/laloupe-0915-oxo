@@ -4,7 +4,7 @@ function mainController($scope, $http, userService, $location) {
 
 	function load(){
 		userService.get().then(function(res){
-			$scope.uers = res.data;
+			$scope.users = res.data;
 
 		});
 	}

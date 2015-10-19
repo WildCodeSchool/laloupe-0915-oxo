@@ -13,6 +13,11 @@ function config($routeProvider) {
 			controller: 'connecterController'
 
 		})
+		.when('/login', {
+			templateUrl: 'views/login.html',
+			controller: 'loginController'
+
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -30,6 +35,8 @@ angular.module('app', ['ngRoute', 'ngMessages'])
     .controller('mainController', mainController)
     .controller('aboutController', aboutController)
     .controller('connecterController', connecterController)
+    .controller('loginController', loginController)
     .service('userService', userService)
+    .service('loginService', loginService)
     /*.factory('', )*/
     .run(run);
