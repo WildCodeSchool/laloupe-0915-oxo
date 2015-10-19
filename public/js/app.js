@@ -1,14 +1,17 @@
 function config($routeProvider) {
 	$routeProvider
+
 		.when('/', {
-			templateUrl: 'views/main.html',
-			controller: 'mainController'
+			templateUrl: 'views/login.html',
+			controller: 'loginController'
 		})
+
 		.when('/formulaire', {
 			templateUrl: 'views/formulaire.html',
 			controller: 'formulaireController'
 
 		})
+
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -23,9 +26,12 @@ function run($rootScope, $location){
 
 angular.module('app', ['ngRoute', 'ngMessages'])
     .config(config)
-    .controller('mainController', mainController)
+   
+    .controller('loginController', loginController)
     .controller('formulaireController', formulaireController)
-    .service('userService', userService)
-    .service('formulaireService', userService)
+    
+    .service('loginService', loginService)
+	.service('formulaireService', userService)
+    
     /*.factory('', )*/
     .run(run);
