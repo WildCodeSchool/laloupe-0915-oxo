@@ -26,7 +26,7 @@ function formulaireController($scope, $http, formulaireService, $location) {
 		data.d = $scope.mdp;
 
 		password.$error = { minlength : true, required : true };
-		$location.path;
+		$location.path('/home');
 
 		formulaireService.create(data).then(function(res){
 			// SUCCESS
