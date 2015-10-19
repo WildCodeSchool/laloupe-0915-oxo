@@ -13,3 +13,17 @@ body{
 .navbar-header img:hover{
 	transform: rotate(360deg);
 }  
+.clickable {
+	cursor: pointer;
+}
+#homeLogo {
+	height: 200px;
+	widows: 200px;
+}
+.lesJeux {
+	height: 150px;
+	border: 1px solid blue;
+}
+.spacer {
+	margin-top: 20px;
+}
