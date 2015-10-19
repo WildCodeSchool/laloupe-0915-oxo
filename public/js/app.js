@@ -4,15 +4,11 @@ function config($routeProvider) {
 			templateUrl: 'views/main.html',
 			controller: 'mainController'
 		})
-		.when('/about', {
-			templateUrl: 'views/about.html',
-			controller: 'aboutController'
-		})
-		.when('/connecter', {
-			templateUrl: 'views/connecter.html',
-			controller: 'connecterController'
+		.when('/home', {
+			templateUrl: 'views/home.html',
+			controller: 'homeController'
 
-		})
+		})		
 		.when('/login', {
 			templateUrl: 'views/login.html',
 			controller: 'loginController'
@@ -36,7 +32,10 @@ angular.module('app', ['ngRoute', 'ngMessages'])
     .controller('aboutController', aboutController)
     .controller('connecterController', connecterController)
     .controller('loginController', loginController)
+    .controller('emailController', emailController)
+    .controller('homeController', homeController)
     .service('userService', userService)
     .service('loginService', loginService)
+    .service('emailService', emailService)
     /*.factory('', )*/
     .run(run);
