@@ -7,6 +7,8 @@ function loginController($scope, $http, loginService, $location) {
 		data.pseudo = $scope.pseudo;
 		data.mdp = $scope.mdp;
 
+		$location.path('/home');
+
 		loginService.post(data).then(function(res){
 			console.log(res.data);
 			if (!res.data){
@@ -16,6 +18,9 @@ function loginController($scope, $http, loginService, $location) {
 	}
 
 	$scope.register = function(){
-		$location.path('/about');
+
+
+		$location.path('/formulaire');
+
 	}
 }

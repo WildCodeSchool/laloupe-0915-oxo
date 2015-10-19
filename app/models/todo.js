@@ -29,10 +29,10 @@ module.exports.findAll = function(req, res) {
 
 module.exports.update = function(req, res){
 	todo.update({
-		pseudo: req.body.pseudo,
+		pseudo: req.body.nickname,
 		ville: req.body.ville,
 		email: req.body.email,
-		mdp: req.body.mdp
+		mdp: req.body.password
 	}, {
 		where: {
 			id: req.params.id

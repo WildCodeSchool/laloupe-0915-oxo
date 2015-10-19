@@ -15,7 +15,7 @@ Utilisateur.sync().then(function(){});
 
 
 module.exports.findAll = function(req, res) {
-	Utilisateur.findOne({
+	Utilisateur.findOrCreate({
 		where :{
 			pseudo: req.body.pseudo,
 			mdp: req.body.mdp
