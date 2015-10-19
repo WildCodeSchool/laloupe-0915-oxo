@@ -1,10 +1,11 @@
 // MAIN CONTROLLER
+
 function mainController($scope, $http, userService, $location) {
 	$scope.title = "Bienvenue sur OXO";
 
 	function load(){
 		userService.get().then(function(res){
-			$scope.uers = res.data;
+			$scope.users = res.data;
 
 		});
 	}

@@ -1,5 +1,31 @@
-<h1>{{ title }}</h1>
-<form class="form-horizontal" name="myform">
+<div>
+	<form class="form-horizontal" name="myform" ng-hide="displayNext">
+
+	<h1>{{ title1 }}</h1>
+
+	<div class="form-group">
+		<label class="col-sm-1">Ville:</label>
+		<div class="col-sm-10">
+			<input placeholder="Ma ville" ng-model="ville" type="text" name="myfield" ng-minlength="4" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-1">E-mail:</label>
+		<div class="col-sm-10">
+			<input placeholder="Mon email" ng-pattern="EMAIL_REGEXP" ng-model="field" type="text" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary col-sm-3" ng-click="next()" ng-disabled="myform.$invalid">Etape suivante</button>
+	</div>	
+	</form>
+</div>
+
+
+<div>
+	<form class="form-horizontal" name="myform2" ng-show="displayNext">
+
+	<h1>{{ title2 }}</h1>
 
 	<div class="form-group" class="has-error">
 		<label class="col-sm-1">Pseudo:</label>
@@ -28,5 +54,6 @@
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary col-sm-3" ng-click="send()">Valider</button>
 	</div>
+	</form>
 
-</form>
+</div>

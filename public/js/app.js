@@ -4,13 +4,9 @@ function config($routeProvider) {
 			templateUrl: 'views/main.html',
 			controller: 'mainController'
 		})
-		.when('/about', {
-			templateUrl: 'views/about.html',
-			controller: 'aboutController'
-		})
-		.when('/connecter', {
-			templateUrl: 'views/connecter.html',
-			controller: 'connecterController'
+		.when('/formulaire', {
+			templateUrl: 'views/formulaire.html',
+			controller: 'formulaireController'
 
 		})
 		.otherwise({
@@ -28,8 +24,8 @@ function run($rootScope, $location){
 angular.module('app', ['ngRoute', 'ngMessages'])
     .config(config)
     .controller('mainController', mainController)
-    .controller('aboutController', aboutController)
-    .controller('connecterController', connecterController)
+    .controller('formulaireController', formulaireController)
     .service('userService', userService)
+    .service('formulaireService', userService)
     /*.factory('', )*/
     .run(run);
