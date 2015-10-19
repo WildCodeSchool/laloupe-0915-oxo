@@ -1,8 +1,8 @@
 // CONTROLLER LOGIN
 
-var Login = require('../models/login.js');
+var Formulaire = require('../models/formulaire.js');
 
 module.exports 	= function(app) {
 
-	app.post('/Logins', Login.findAll);
+	app.post('/Logins', Formulaire.login);
 }
