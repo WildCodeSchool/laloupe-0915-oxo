@@ -1,4 +1,5 @@
 // MAIN CONTROLLER
+
 function mainController($scope, $http, userService, $location) {
 	$scope.title = "Bienvenue sur OXO";
 
