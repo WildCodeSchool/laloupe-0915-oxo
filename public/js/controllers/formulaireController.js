@@ -13,7 +13,7 @@ function formulaireController($scope, $http, formulaireService, $location) {
 
 		});
 	}
-
+	
 	$scope.next = function(){
 		$scope.displayNext = true;
 	}

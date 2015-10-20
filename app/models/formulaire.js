@@ -27,6 +27,7 @@ module.exports.create = function(req, res) {
 	})
 };
 
+
 module.exports.login = function(req, res) {
 	Formulaire.findOne({
 		where:{
