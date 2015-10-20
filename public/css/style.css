@@ -34,3 +34,16 @@ h3.titre {
     padding: 1%;
     background-color: #f0f0f0;
 }
+
+label.searchGame {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.searchGame form input button select {
+    margin-top: 0px;
+}
+
+img.searchGame {
+    margin-top: -10px;
+}

@@ -1,9 +1,11 @@
 <h1>Liste des jeux-vidéos</h1>
-<form class="form-inline">
-    <label class="control-label">Cherchez votre jeux:</label>
-    <input  class="form-control" ng-model="jeux" type="text" name="jeux">
-    <button class="btn btn-primary" ng-click="get()">Chercher</button>
-    <select class="form-control" ng-model="searchGame.results.platforms.name">
+
+
+    <label class="searchGame">Cherchez votre jeux :</label>
+<form class="form-inline searchGame">
+    <input  class="form-control searchGame" placeholder="ex: Battlefront, Fifa, ..." ng-model="jeux" type="text" name="jeux" ng-disabled="loadingInProgress">
+    <button class="btn btn-primary searchGame" ng-click="get()" ng-disabled="loadingInProgress">Chercher</button>
+    <select class="form-control searchGame" ng-model="searchGame.results.platforms.name" ng-disabled="loadingInProgress">
         <option value="">Trier par plateforme</option>
         <option value="PC">PC</option>
         <option value="Playstation 4">Playstation 4</option>
@@ -16,15 +18,14 @@
         <option value="Wii">Wii</option>
         <option value="iPhone">iPhone</option>
         <option value="Ipad">iPad</option>
-        <option value="Android">Android</option>
-        
+        <option value="Android">Android</option> 
     </select>
+    <img class="spinner searchGame" ng-show="loadingInProgress" src="image/oxoSpinner.gif" width="50px"/>    
 </form>
+    
     <br/>
-	<p>{{(games.results | filter:searchGame.results.platforms.name).length }}{{results}}</p>
-	<div class="spinner" ng-show="loadingInProgress">
-        <img src="image/oxoSpinner.gif"/>
-    </div>
+	<p>{{(games.results | filter:searchGame.results.platforms.name).length }} <span ng-show="games.results.length > 0">{{(games.results | filter:searchGame.results.platforms.name).length > 1 ? 'resultats' : 'resultat'}} à votre recherche</span></p>
+	
 	<div class=" resultGame row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
 
         <h3 class="titre">{{ game.name }} -   <span class="date">{{game.original_release_date}}</span></h3 >
