@@ -9,8 +9,12 @@ function config($routeProvider) {
 		.when('/formulaire', {
 			templateUrl: 'views/formulaire.html',
 			controller: 'formulaireController'
-
 		})
+
+		.when('/home', {
+			templateUrl: 'views/home.html',
+			controller: 'homeController'
+		})		
 
 		.otherwise({
 			redirectTo: '/'
@@ -26,12 +30,14 @@ function run($rootScope, $location){
 
 angular.module('app', ['ngRoute', 'ngMessages'])
     .config(config)
-   
+
     .controller('loginController', loginController)
+    .controller('emailController', emailController)
+    .controller('homeController', homeController)
     .controller('formulaireController', formulaireController)
-    
     .service('loginService', loginService)
-	.service('formulaireService', userService)
-    
+    .service('formulaireService', formulaireService)
+    .service('emailService', emailService)
+
     /*.factory('', )*/
     .run(run);

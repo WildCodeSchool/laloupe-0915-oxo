@@ -1,48 +1,44 @@
- // MODEL USER
+// MODEL EMAIL
 
 var Sequelize = require('sequelize');
 var db = require('../../config/database.js');
 
-/*var User = db.define('User', {
-description: Sequelize.STRING
-});*/
 
-
-var User = db.define('user', {
-	pseudo: Sequelize.STRING,
+var Email = db.define('email', {
+	nom: Sequelize.STRING,
 	ville: Sequelize.STRING,
-	email: Sequelize.STRING,
-	mdp: Sequelize.STRING
-
+	sujet:Sequelize.STRING,
+	message: Sequelize.STRING
 });
 
-//User.sync().then(function(){});
-User.sync().then(function(){});
+
+Email.sync().then(function(){});
+//rentrer ici les colonnes a créer
 
 
 module.exports.create = function(req, res) {
-	User.create({
-		pseudo: req.body.nickname,
-		ville: req.body.ville,
-		email: req.body.email,
-		mdp: req.body.password
+	Email.create({
+		nom: req.body.name,
+		ville: req.body.city,
+		sujet: req.body.subject,
+		message: req.body.msg
 	}).then(function(){
 		res.sendStatus(200);
 	})
 };
 
 module.exports.findAll = function(req, res) {
-	User.findAll().then(function (data) {
+	Email.findAll().then(function (data) {
 		res.json(data);
 	});
 };
 
 module.exports.update = function(req, res){
-	User.update({
-		pseudo: req.body.nickname,
-		ville: req.body.ville,
-		email: req.body.email,
-		mdp: req.body.password
+	Email.update({
+		nom: req.body.name,
+		ville: req.body.city,
+		sujet: req.body.subject,
+		message: req.body.msg
 	}, {
 		where: {
 			id: req.params.id
@@ -53,7 +49,7 @@ module.exports.update = function(req, res){
 }
 
 module.exports.delete = function(req, res){
-	User.destroy({
+	Email.destroy({
 		where: {
 			id: req.params.id
 		}
