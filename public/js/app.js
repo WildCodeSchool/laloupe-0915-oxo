@@ -29,6 +29,11 @@ function config($routeProvider) {
 			templateUrl: 'views/profil.html',
 			controller: 'profilController'
 		})	
+		.when('/find', {
+		templateUrl: 'views/find.html',
+		controller: 'findController'
+		})	
+		
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -44,6 +49,7 @@ function run($rootScope, $location){
 angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .config(config)
     .controller('list_vgController', list_vgController)
+    .controller('findController', findController)
     .service('list_vgService', list_vgService)
     .controller('loginController', loginController)
     .controller('emailController', emailController)
@@ -51,6 +57,7 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('formulaireController', formulaireController)
     .controller('profilController', profilController)
     .service('profilService', profilService)
+    .service('findService', findService)
     .service('loginService', loginService)
     .service('formulaireService', formulaireService)
     .service('emailService', emailService)
