@@ -7,17 +7,26 @@ function loginController($scope, $http, loginService, $location) {
 		data.pseudo = $scope.pseudo;
 		data.mdp = $scope.mdp;
 
-		$location.path('/home');
+		
 
 		loginService.post(data).then(function(res){
 			console.log(res.data);
 			if (!res.data){
 				alert("boulet !!!!");
+				$location.path('/');
+
+			}
+
+			else {
+				$location.path('/home');
 			}
 		});
 	}
 
 	$scope.register = function(){
+
+
 		$location.path('/formulaire');
+
 	}
 }
