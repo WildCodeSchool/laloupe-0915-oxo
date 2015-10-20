@@ -13,3 +13,24 @@ body{
 .navbar-header img:hover{
 	transform: rotate(360deg);
 }  
+
+/*RECHERCHE JEUX VIDEO*/
+
+.gameIcon {
+   max-height: 120px;
+}
+
+.date  {
+    font-size: 16px;
+    color: dimgrey;
+    display: inline;
+}
+
+h3.titre {
+    margin-top: 0px;
+}
+
+.resultGame {
+    padding: 1%;
+    background-color: #f0f0f0;
+}
