@@ -1,0 +1,41 @@
+<h1>Liste des jeux-vidéos</h1>
+
+
+    <label class="searchGame">Cherchez votre jeux :</label>
+<form class="form-inline searchGame">
+    <input  class="form-control searchGame" placeholder="ex: Battlefront, Fifa, ..." ng-model="jeux" type="text" name="jeux" ng-disabled="loadingInProgress">
+    <button class="btn btn-primary searchGame" ng-click="get()" ng-disabled="loadingInProgress">Chercher</button>
+    <select class="form-control searchGame" ng-model="searchGame.results.platforms.name" ng-disabled="loadingInProgress">
+        <option value="">Trier par plateforme</option>
+        <option value="PC">PC</option>
+        <option value="Playstation 4">Playstation 4</option>
+        <option value="XBox One">Xbox One</option>
+        <option value="PlayStation 3">Playstation 3</option>
+        <option value="Xbox 360">Xbox 360</option>
+        <option value="Nintendo 3DS">3DS</option>
+        <option value="PlayStation Vita">PS Vita</option>
+        <option value="Nintendo DS">DS</option>
+        <option value="Wii">Wii</option>
+        <option value="iPhone">iPhone</option>
+        <option value="Ipad">iPad</option>
+        <option value="Android">Android</option> 
+    </select>
+    <img class="spinner searchGame" ng-show="loadingInProgress" src="image/oxoSpinner.gif" width="50px"/>    
+</form>
+    
+    <br/>
+	<p>{{(games.results | filter:searchGame.results.platforms.name).length }} <span ng-show="games.results.length > 0">{{(games.results | filter:searchGame.results.platforms.name).length > 1 ? 'resultats' : 'resultat'}} à votre recherche</span></p>
+	
+	<div class=" resultGame row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
+
+        <h3 class="titre">{{ game.name }} -   <span class="date">{{game.original_release_date}}</span></h3 >
+        <div class="col-md-2">
+            <img class="gameIcon" src="{{game.image.thumb_url}} ">
+        </div>
+        <div class="col-md-10">
+            <ul class="list-inline">
+                <p>Ajouter à ma collection</p>
+                <li  ng-repeat="platform in game.platforms | filter:searchGame.results.platforms.name"><button class="btn btn-primary btn-xs platform">{{platform.abbreviation}}</button></li>
+	        </ul>
+        </div>
+	</div>

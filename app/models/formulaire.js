@@ -5,7 +5,7 @@ var db = require('../../config/database.js');
 
 
 
-var Formulaire = db.define('formulaire', {
+var Formulaire = db.define('user', {
 	ville: Sequelize.STRING,
 	field: Sequelize.STRING,
 	pseudo:Sequelize.STRING,
@@ -25,6 +25,17 @@ module.exports.create = function(req, res) {
 	}).then(function(){
 		res.sendStatus(200);
 	})
+};
+
+module.exports.login = function(req, res) {
+	Formulaire.findOne({
+		where:{
+			pseudo: req.body.pseudo,
+			mdp: req.body.mdp
+		}
+	}).then(function (data) {
+		res.json(data);
+	});
 };
 
 module.exports.findAll = function(req, res) {

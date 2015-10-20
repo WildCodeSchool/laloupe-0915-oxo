@@ -6,6 +6,11 @@ function config($routeProvider) {
 			controller: 'loginController'
 		})
 
+        .when('/VideosGames', {
+              templateUrl: 'views/list_vg.html',
+              controller: 'list_vgController'
+        })
+
 		.when('/formulaire', {
 			templateUrl: 'views/formulaire.html',
 			controller: 'formulaireController'
@@ -28,9 +33,11 @@ function run($rootScope, $location){
 	});
 }
 
-angular.module('app', ['ngRoute', 'ngMessages'])
+angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .config(config)
 
+    .controller('list_vgController', list_vgController)
+    .service('list_vgService', list_vgService)
     .controller('loginController', loginController)
     .controller('emailController', emailController)
     .controller('homeController', homeController)
