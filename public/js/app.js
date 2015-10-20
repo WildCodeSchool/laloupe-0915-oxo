@@ -43,9 +43,6 @@ function run($rootScope, $location){
 
 angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .config(config)
-    .controller('mainController', mainController)
-    .controller('aboutController', aboutController)
-    .controller('connecterController', connecterController)
     .controller('list_vgController', list_vgController)
     .service('list_vgService', list_vgService)
     .controller('loginController', loginController)
