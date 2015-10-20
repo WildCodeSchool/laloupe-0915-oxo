@@ -1,8 +1,8 @@
 function config($routeProvider) {
 	$routeProvider
 		.when('/', {
-			templateUrl: 'views/main.html',
-			controller: 'mainController'
+			templateUrl: 'views/login.html',
+			controller: 'loginController'
 		})
 		.when('/about', {
 			templateUrl: 'views/about.html',
@@ -16,6 +16,16 @@ function config($routeProvider) {
               templateUrl: 'views/list_vg.html',
               controller: 'list_vgController'
         })
+
+		.when('/formulaire', {
+			templateUrl: 'views/formulaire.html',
+			controller: 'formulaireController'
+		})
+		.when('/home', {
+			templateUrl: 'views/home.html',
+			controller: 'homeController'
+		})		
+    
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -36,5 +46,12 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('list_vgController', list_vgController)
     .service('userService', userService)
     .service('list_vgService', list_vgService)
+    .controller('loginController', loginController)
+    .controller('emailController', emailController)
+    .controller('homeController', homeController)
+    .controller('formulaireController', formulaireController)
+    .service('loginService', loginService)
+    .service('formulaireService', formulaireService)
+    .service('emailService', emailService)
     /*.factory('', )*/
     .run(run);
