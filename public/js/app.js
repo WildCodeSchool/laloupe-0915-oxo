@@ -19,7 +19,12 @@ function config($routeProvider) {
 		.when('/home', {
 			templateUrl: 'views/home.html',
 			controller: 'homeController'
-		})		
+		})	
+
+		.when('/find', {
+			templateUrl: 'views/find.html',
+			controller: 'findController'
+		})	
 
 		.otherwise({
 			redirectTo: '/'
@@ -42,9 +47,11 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('emailController', emailController)
     .controller('homeController', homeController)
     .controller('formulaireController', formulaireController)
+    .controller('findController', findController)
     .service('loginService', loginService)
     .service('formulaireService', formulaireService)
     .service('emailService', emailService)
+    .service('findService', findService)
 
     /*.factory('', )*/
     .run(run);
