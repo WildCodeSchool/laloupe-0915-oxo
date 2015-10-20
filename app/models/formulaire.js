@@ -27,6 +27,18 @@ module.exports.create = function(req, res) {
 	})
 };
 
+
+module.exports.findAll = function(req, res) {
+	Formulaire.findOne({
+		where :{
+			pseudo: req.body.pseudo,
+			mdp: req.body.mdp
+		}
+	}).then(function (data) {
+		res.json(data);
+	});
+};
+
 module.exports.findAll = function(req, res) {
 	Formulaire.findAll().then(function (data) {
 		res.json(data);
