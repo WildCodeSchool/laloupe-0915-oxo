@@ -4,6 +4,7 @@ function profilController($scope, $http, $location, formulaireService) {
 		formulaireService.get().then(function(res){
 			$scope.users = res.data;
 			console.log(res.data);
+			debugger
 		});
 	}
 		$scope.myProfil = function(){

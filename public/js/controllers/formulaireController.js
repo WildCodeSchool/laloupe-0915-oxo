@@ -5,8 +5,6 @@ function formulaireController($scope, $http, formulaireService, $location) {
 	$scope.title2 = "Etape trois";
 	$scope.EMAIL_REGEXP = /^[a-zA-Z0-9._]+@[a-z]+\.[a-z.]{2,3}$/;
 
-	console.log($scope);
-
 	function load(){
 		formulaireService.get().then(function(res){
 			$scope.users = res.data;

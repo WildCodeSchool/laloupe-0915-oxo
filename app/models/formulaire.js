@@ -13,11 +13,11 @@ var Formulaire = db.define('formulaire', {
 
 });
 
-Formulaire.sync().then(function(){});
+Formulaire.sync({force:true}).then(function(){});
 
 
 module.exports.create = function(req, res) {
-	Formulaire.create({
+	Formulaire.findOrCreate({
 		ville: req.body.a,
 		field: req.body.b,
 		pseudo: req.body.c,
