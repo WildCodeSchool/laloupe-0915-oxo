@@ -32,14 +32,6 @@ function config($routeProvider) {
 		.when('/email', {
 			templateUrl: 'views/email.html',
 			controller: 'emailController'
-		})	
-		.when('/find', {
-		templateUrl: 'views/find.html',
-		controller: 'findController'
-		})	
-		.when('/email', {
-			templateUrl: 'views/email.html',
-			controller: 'emailController'
 		})		
 		.otherwise({
 			redirectTo: '/'
