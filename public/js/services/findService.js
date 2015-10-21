@@ -1,6 +1,6 @@
-// PROFIL SERVICE
+// FIND SERVICE
 
-function profilService($http){
+function findService($http){
 	return {
 		get : function() {
 				return $http.get('/Formulaires');

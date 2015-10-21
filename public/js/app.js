@@ -20,7 +20,15 @@ function config($routeProvider) {
 		.when('/profil', {
 			templateUrl: 'views/profil.html',
 			controller: 'profilController'
-		})	
+		})
+		.when('/find', {
+			templateUrl: 'views/find.html',
+			controller: 'findController'
+		})
+		.when('/email', {
+			templateUrl: 'views/email.html',
+			controller: 'emailController'
+		})		
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -42,6 +50,8 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('homeController', homeController)
     .controller('formulaireController', formulaireController)
     .controller('profilController', profilController)
+    .controller('findController', findController)
+    .service('findService', findService)
     .service('profilService', profilService)
     .service('loginService', loginService)
     .service('formulaireService', formulaireService)

@@ -5,7 +5,7 @@ var db = require('../../config/database.js');
 
 
 
-var Formulaire = db.define('user', {
+var Formulaire = db.define('formulaire', {
 	ville: Sequelize.STRING,
 	field: Sequelize.STRING,
 	pseudo:Sequelize.STRING,
