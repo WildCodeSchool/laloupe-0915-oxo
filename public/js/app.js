@@ -4,19 +4,10 @@ function config($routeProvider) {
 			templateUrl: 'views/login.html',
 			controller: 'loginController'
 		})
-		.when('/about', {
-			templateUrl: 'views/about.html',
-			controller: 'aboutController'
-		})
-		.when('/connecter', {
-			templateUrl: 'views/connecter.html',
-			controller: 'connecterController'
-		})
         .when('/VideosGames', {
               templateUrl: 'views/list_vg.html',
               controller: 'list_vgController'
         })
-
 		.when('/formulaire', {
 			templateUrl: 'views/formulaire.html',
 			controller: 'formulaireController'
@@ -33,7 +24,10 @@ function config($routeProvider) {
 		templateUrl: 'views/find.html',
 		controller: 'findController'
 		})	
-		
+		.when('/email', {
+			templateUrl: 'views/email.html',
+			controller: 'emailController'
+		})		
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -59,7 +53,7 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .service('profilService', profilService)
     .service('findService', findService)
     .service('loginService', loginService)
-    .service('formulaireService', formulaireService)
+    .service('userService', userService)
     .service('emailService', emailService)
     /*.factory('', )*/
     .run(run);

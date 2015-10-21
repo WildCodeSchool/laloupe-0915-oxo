@@ -1,10 +1,15 @@
-function profilController($scope, $http, $location, formulaireService) {
+//PROFIL Controller
+function profilController($scope, $http, $rootScope, $location, userService) {
 
 	function load(){
-		formulaireService.get().then(function(res){
+		userService.getById($rootScope.user.id).then(function(res){
 			$scope.users = res.data;
+			$scope.user = res.data.pseudo;
+			$scope.ville = res.data.ville;
+			$scope.email = res.data.field;
+			
 			console.log(res.data);
-			debugger
+			
 		});
 	}
 		$scope.myProfil = function(){
@@ -16,4 +21,5 @@ function profilController($scope, $http, $location, formulaireService) {
 		$scope.findPlayer = function(){
 		$location.path('/findPlayer');
 	}
+	load();
 }

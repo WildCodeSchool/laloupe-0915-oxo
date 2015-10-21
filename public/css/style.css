@@ -62,4 +62,7 @@ label.searchGame {
 img.searchGame {
     margin-top: -10px;
 }
-
+.user {
+    color:white;
+    line-height: 50px;
+}
