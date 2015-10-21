@@ -34,7 +34,7 @@
     <script src="js/controllers/findController.js"></script>
 
     <script src="js/services/list_vgService.js"></script>
-    <script src="js/services/formulaireService.js"></script>
+    <script src="js/services/userService.js"></script>
     <script src="js/services/loginService.js"></script>
     <script src="js/services/emailService.js"></script>
     <script src="js/services/profilService.js"></script>
@@ -57,6 +57,7 @@
                 <li ng-class="{active: activetab=='/'}"><a href="#/">Accueil</a></li>
                 <li ng-class="{active: activetab=='/VideosGames'}"><a href="#/VideosGames">Jeux Vidéos</a></li>
             </ul>
+            <li class="pull-right user" ng-if="user">{{ user.pseudo }}</li>
         </div>
     </nav>
 

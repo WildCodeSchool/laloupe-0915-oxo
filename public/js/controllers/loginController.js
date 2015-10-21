@@ -1,5 +1,5 @@
 // LOGIN CONTROLLER
-function loginController($scope, $http, loginService, $location) {
+function loginController($scope, $http, $rootScope, loginService, $location) {
 	$scope.title = "LOGIN";
 
 	$scope.send = function(){
@@ -14,10 +14,10 @@ function loginController($scope, $http, loginService, $location) {
 			if (!res.data){
 				alert("boulet !!!!");
 				$location.path('/');
-
 			}
 
 			else {
+				$rootScope.user = res.data;
 				$location.path('/home');
 			}
 		});
