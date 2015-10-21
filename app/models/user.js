@@ -5,7 +5,8 @@ var db = require('../../config/database.js');
 
 
 
-var Formulaire = db.define('formulaire', {
+
+var User = db.define('user', {
 	ville: Sequelize.STRING,
 	field: Sequelize.STRING,
 	pseudo:Sequelize.STRING,
@@ -13,11 +14,11 @@ var Formulaire = db.define('formulaire', {
 
 });
 
-Formulaire.sync().then(function(){});
+User.sync().then(function(){});
 
 
 module.exports.create = function(req, res) {
-	Formulaire.create({
+	User.create({
 		ville: req.body.a,
 		field: req.body.b,
 		pseudo: req.body.c,
@@ -29,7 +30,7 @@ module.exports.create = function(req, res) {
 
 
 module.exports.login = function(req, res) {
-	Formulaire.findOne({
+	User.findOne({
 		where:{
 			pseudo: req.body.pseudo,
 			mdp: req.body.mdp
@@ -40,13 +41,22 @@ module.exports.login = function(req, res) {
 };
 
 module.exports.findAll = function(req, res) {
-	Formulaire.findAll().then(function (data) {
+	User.findAll().then(function (data) {
+		res.json(data);
+	});
+};
+
+module.exports.find = function(req, res) {
+	User.findOne({
+	where : {
+		id: req.params.id
+	}}).then(function (data) {
 		res.json(data);
 	});
 };
 
 module.exports.update = function(req, res){
-	Formulaire.update({
+	User.update({
 		ville: req.body.a,
 		field: req.body.b,
 		pseudo: req.body.c,
@@ -61,7 +71,7 @@ module.exports.update = function(req, res){
 }
 
 module.exports.delete = function(req, res){
-	Formulaire.destroy({
+	UserUser.destroy({
 		where: {
 			id: req.params.id
 		}
@@ -69,3 +79,16 @@ module.exports.delete = function(req, res){
 		res.sendStatus(200);
 	})
 }
+
+
+
+/*module.exports.find = function(req, res){
+ Formulaire.findOne({
+   where: {
+     pseudo: req.body.c,
+     mdp: req.body.d
+   }
+ }).then(function(formulaire){
+   res.json(formulaire);
+ })
+}*/

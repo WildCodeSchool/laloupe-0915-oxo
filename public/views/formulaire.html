@@ -1,8 +1,6 @@
-<div>
-	<form class="form-horizontal" name="myform" ng-hide="displayNext">
-
+<div ng-hide="displayNext">
 	<h1>{{ title1 }}</h1>
-
+	<form class="form-horizontal" name="myform"> 
 	<div class="form-group">
 		<label class="col-sm-1">Ville:</label>
 		<div class="col-sm-10">
@@ -22,11 +20,9 @@
 </div>
 
 
-<div>
-	<form class="form-horizontal" name="myform2" ng-show="displayNext">
-
+<div ng-show="displayNext">
 	<h1>{{ title2 }}</h1>
-
+	<form class="form-horizontal" name="myform2">
 	<div class="form-group" class="has-error">
 		<label class="col-sm-1">Pseudo:</label>
 		<div class="col-sm-10">
@@ -39,7 +35,7 @@
 		<div class="col-sm-10">
 			<input id="password" name="password" placeholder="Mon mot de passe" ng-model="mdp" type="password" ng-minlength="6">
 			<span class="text-danger" ng-show="myform.password.$error.minlength">
-				Game over ! Veuillez rentrer au moins 6 caractères... Try again !
+				Game over ! Veuillez entrer au moins 6 caractères... Try again !
 			</span>
 		</div>
 	</div>
@@ -50,6 +46,7 @@
 			<input placeholder="Confimer" ng-model="password2" type="password" ng-minlength="6" required>
 		</div>
 	</div>
+
 
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary col-sm-3"ng-click="send()"  ng-disabled="myform2.$invalid">Valider</button>

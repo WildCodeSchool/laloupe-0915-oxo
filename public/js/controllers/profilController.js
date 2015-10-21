@@ -1,9 +1,16 @@
-function profilController($scope, $http, $location, formulaireService) {
+//PROFIL Controller
+function profilController($scope, $http, $rootScope, $location, userService) {
 
 	function load(){
-		formulaireService.get().then(function(res){
-			$scope.user = res.data[0].pseudo;
-			$scope.ville = res.data[0].ville;
+
+		userService.getById($rootScope.user.id).then(function(res){
+			$scope.users = res.data;
+			$scope.user = res.data.pseudo;
+			$scope.ville = res.data.ville;
+			$scope.email = res.data.field;
+			
+			console.log(res.data);
+			
 		});
 	}
 		$scope.myProfil = function(){

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- AngularJS -->
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+
     <script src="js/libs/angular.min.js"></script>
     <script src="js/libs/angular-route.min.js"></script>
     <script src="https://code.angularjs.org/1.4.7/angular-resource.min.js"></script>
@@ -21,21 +23,29 @@
     
     <script src="js/controllers/findController.js"></script>
     <script src="js/controllers/list_vgController.js"></script>
+
     <script src="js/controllers/loginController.js"></script>    
     <script src="js/controllers/formulaireController.js"></script>
+
     <script src="js/controllers/homeController.js"></script>
     <script src="js/controllers/emailController.js"></script> 
-    <script src="js/controllers/profilController.js"></script>
 
-    <script src="js/services/findService.js"></script>
+    <script src="js/controllers/profilController.js"></script>
+    <script src="js/controllers/findController.js"></script>
+
+
+
     <script src="js/services/list_vgService.js"></script>
-    <script src="js/services/formulaireService.js"></script>
+    <script src="js/services/userService.js"></script>
     <script src="js/services/loginService.js"></script>
     <script src="js/services/emailService.js"></script>
     <script src="js/services/profilService.js"></script>
+    <script src="js/services/findService.js"></script>
 
 
     <script src="js/app.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
 
     </head>
     <body>
@@ -49,6 +59,7 @@
                 <li ng-class="{active: activetab=='/'}"><a href="#/">Accueil</a></li>
                 <li ng-class="{active: activetab=='/VideosGames'}"><a href="#/VideosGames">Jeux Vidéos</a></li>
             </ul>
+            <li class="pull-right user" ng-if="user">{{ user.pseudo }}</li>
         </div>
     </nav>
 
