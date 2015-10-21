@@ -13,7 +13,7 @@ function formulaireController($scope, $http, formulaireService, $location) {
 
 		});
 	}
-
+	
 	$scope.next = function(){
 		$scope.displayNext = true;
 	}
@@ -40,3 +40,24 @@ function formulaireController($scope, $http, formulaireService, $location) {
 
 	load();
 }
+
+
+    /*$scope.send = function(){
+        var data = {};
+        data.c = $scope.pseudo;
+        data.d = $scope.mdp;
+        formulaireService.data(data).then(function(res){
+            //SUCCESS
+            if (res.data){
+                alert("bienvenue");
+                $location.path('/home');
+            }else{
+                alert("pseudo ou mot de passe incorrect");
+                $location.path('/formulaire');}
+        }, function(){
+            //ERROR
+        });
+    }
+
+    load();
+}*/

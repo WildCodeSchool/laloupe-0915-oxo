@@ -1,6 +1,6 @@
-// FORMULAIRE SERVICE
+// PROFIL SERVICE
 
-function formulaireService($http){
+function profilService($http){
 	return {
 		get : function() {
 				return $http.get('/Formulaires');
@@ -16,6 +16,3 @@ function formulaireService($http){
 		}
 	}
 };
-
-
-
