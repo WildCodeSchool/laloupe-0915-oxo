@@ -5,7 +5,7 @@ var db = require('../../config/database.js');
 
 
 
-var Formulaire = db.define('user', {
+var Formulaire = db.define('formulaire', {
 	ville: Sequelize.STRING,
 	field: Sequelize.STRING,
 	pseudo:Sequelize.STRING,
@@ -13,11 +13,11 @@ var Formulaire = db.define('user', {
 
 });
 
-Formulaire.sync().then(function(){});
+Formulaire.sync({force:true}).then(function(){});
 
 
 module.exports.create = function(req, res) {
-	Formulaire.create({
+	Formulaire.findOrCreate({
 		ville: req.body.a,
 		field: req.body.b,
 		pseudo: req.body.c,
