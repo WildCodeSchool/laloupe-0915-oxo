@@ -7,9 +7,7 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 			$scope.user = res.data.pseudo;
 			$scope.ville = res.data.ville;
 			$scope.email = res.data.field;
-			
-			console.log(res.data);
-			
+				
 		});
 	}
 		$scope.myProfil = function(){
@@ -21,5 +19,10 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 		$scope.findPlayer = function(){
 		$location.path('/findPlayer');
 	}
-	load();
+	
+    $scope.addGame = function() {
+        $location.path('/VideosGames');   
+    }
+    
+    load();
 }

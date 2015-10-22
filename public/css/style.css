@@ -1,5 +1,7 @@
 body{
     padding-top: 70px;
+    background-color: #f0f0f0;
+
 }
 
 .navbar-border{
@@ -45,9 +47,9 @@ h3.titre {
     margin-top: 0px;
 }
 
-.resultGame {
+.case {
     padding: 1%;
-    background-color: #f0f0f0;
+    background-color: white;
 }
 
 label.searchGame {
@@ -65,4 +67,10 @@ img.searchGame {
 .user {
     color:white;
     line-height: 50px;
+}
+
+.entete {
+    color : #EFEFEF;
+    border: #0269C2 ;
+    
 }
