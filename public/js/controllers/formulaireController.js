@@ -1,17 +1,11 @@
 // formulaire CONTROLLER
 
-function formulaireController($scope, $http, userService, $location) {
+function formulaireController($scope, $rootScope, $http, userService, $location) {
 	$scope.title1 = "Etape deux";
 	$scope.title2 = "Etape trois";
 	$scope.EMAIL_REGEXP = /^[a-zA-Z0-9._]+@[a-z]+\.[a-z.]{2,3}$/;
 
-	function load(){
-		userService.get().then(function(res){
-			$scope.users = res.data;
 
-		});
-	}
-	
 	$scope.next = function(){
 		$scope.displayNext = true;
 	}
@@ -23,19 +17,24 @@ function formulaireController($scope, $http, userService, $location) {
 		data.c = $scope.pseudo;
 		data.d = $scope.mdp;
 
-		password.$error = { minlength : true, required : true };
-		$location.path('/home');
+		$scope.dtc = $scope.pseudo;
+		if ($scope.mdp === $scope.password2) {
+			userService.create(data).then(function(res){
+				// SUCCESS
+				$rootScope.user = res.data;
+				$location.path('/home');
+			}).catch(function(){
+				//ERROR
+				$scope.pseudoUsed = true;
+				setTimeout(function(){ $scope.pseudoUsed = false}, 1000);
+			});
 
-		userService.create(data).then(function(res){
-			// SUCCESS
-			load();
-			console.log(data);
-		}, function(){
-			//ERROR
-		});
+		} 
+		else {
+			$scope.alertError = true;
+			$scope.password2 = "";
+		}	
 
 	}
-
-	load();
 }
 

@@ -22,8 +22,8 @@ module.exports.create = function(req, res) {
 		field: req.body.b,
 		pseudo: req.body.c,
 		mdp: req.body.d
-	}).then(function(){
-		res.sendStatus(200);
+	}).then(function(user){
+		res.json(user);
 	})
 };
 
@@ -54,6 +54,18 @@ module.exports.find = function(req, res) {
 	});
 };
 
+module.exports.findByName = function(req, res, next) {
+	User.findOne({
+	where : {
+		pseudo: req.body.c
+	}}).then(function (data) {
+		if (data)
+			res.sendStatus(409);
+		else
+			next();
+	});
+};
+
 module.exports.update = function(req, res){
 	User.update({
 		ville: req.body.a,
@@ -70,7 +82,7 @@ module.exports.update = function(req, res){
 }
 
 module.exports.delete = function(req, res){
-	UserUser.destroy({
+	User.destroy({
 		where: {
 			id: req.params.id
 		}

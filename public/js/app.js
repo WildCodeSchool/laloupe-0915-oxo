@@ -33,7 +33,6 @@ function config($routeProvider) {
 			templateUrl: 'views/email.html',
 			controller: 'emailController'
 		})	
-		
 		.otherwise({
 			redirectTo: '/'
 		});

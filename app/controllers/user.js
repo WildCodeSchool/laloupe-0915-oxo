@@ -8,7 +8,7 @@ module.exports 	= function(app) {
 
 	app.get('/Users/:id', User.find);
 
-	app.post('/Users', User.create);
+	app.post('/Users', User.findByName, User.create);
 
 	app.put('/Users/:id', User.update);
 
