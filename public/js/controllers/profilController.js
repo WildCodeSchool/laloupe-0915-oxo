@@ -9,12 +9,19 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 			$scope.mail = res.data.mail;
 			
 			
-		$scope.addGame = function() {
-		$location.path('/VideosGames');
-	}
-		$scope.editUser = function() {
-		$location.path('/editUser');
-	}
+            $scope.addGame = function() {
+                $location.path('/VideosGames');
+            }
 
-	load();
+            $scope.editUser = function() {
+                $location.path('/editUser');
+            }
+
+        });
+                                                     
+    load();
+        
+    }
+    
 }
+        
