@@ -1,5 +1,7 @@
+<h1>{{ title }}</h1>
+<div class="alert alert-warning" ng-hide="!displayError" ng-if="err.length > 0">{{ err }}</div>
+
 <div ng-hide="displayNext">
-	<h1>{{ title1 }}</h1>
 	<form class="form-horizontal" name="myform"> 
 	<div class="form-group">
 		<label class="col-sm-1">Ville:</label>
@@ -21,8 +23,6 @@
 
 
 <div ng-show="displayNext">
-	<h1>{{ title2 }}</h1>
-	<div class="alert alert-warning" ng-hide="!pseudoUsed" ng-if="pseudo.length > 0">Nonon, le pseudo {{ dtc }} est déjà pris, soit plus créatif !!</div>
 	<form class="form-horizontal" name="myform2">
 	<div class="form-group" class="has-error">
 		<label class="col-sm-1">Pseudo:</label>
@@ -43,8 +43,8 @@
 	<div class="form-group">
 		<label class="col-sm-1">Confirmer:</label>
 		<div class="col-sm-10">
-			<input placeholder="Tu sais quoi faire" ng-model="password2" type="password" ng-minlength="0" required>
-			<span ng-hide="password2.length > 0"><span ng-show="alertError" class="text-danger">Game Over! Try again, SUCKER !!</span></span>
+			<input placeholder="Confirmer-le" ng-model="password2" type="password" ng-minlength="0" required>
+			<span ng-hide="password2.length > 0"><span ng-show="alertError" class="text-danger">Game Over! Try again !</span></span>
 		</div>
 	</div>
 

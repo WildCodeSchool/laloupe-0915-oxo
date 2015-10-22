@@ -5,10 +5,12 @@ function config($routeProvider) {
 			templateUrl: 'views/login.html',
 			controller: 'loginController'
 		})
+
         .when('/VideosGames', {
               templateUrl: 'views/list_vg.html',
               controller: 'list_vgController'
         })
+
 		.when('/formulaire', {
 			templateUrl: 'views/formulaire.html',
 			controller: 'formulaireController'
@@ -57,7 +59,6 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('formulaireController', formulaireController)
   	.controller('findController', findController)
     .controller('profilController', profilController)
-    .service('profilService', profilService)
     .service('findService', findService)
     .service('loginService', loginService)
     .service('userService', userService)

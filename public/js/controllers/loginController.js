@@ -1,6 +1,6 @@
 // LOGIN CONTROLLER
 function loginController($scope, $http, $rootScope, loginService, $location) {
-	$scope.title = "LOGIN";
+	$scope.title = "Connexion";
 
 	$scope.send = function(){
 		var data = {};
@@ -12,7 +12,7 @@ function loginController($scope, $http, $rootScope, loginService, $location) {
 		loginService.post(data).then(function(res){
 			console.log(res.data);
 			if (!res.data){
-				alert("boulet !!!!");
+				alert("Vous n'êtes pas encore incrit !");
 				$location.path('/');
 			}
 
