@@ -10,6 +10,8 @@ module.exports 	= function(app) {
 
 	app.post('/Users', User.findByName, User.create);
 
+	app.post('/CheckMail', User.findByEmail);
+
 	app.put('/Users/:id', User.update);
 
 	app.delete('/Users/:id', User.delete);

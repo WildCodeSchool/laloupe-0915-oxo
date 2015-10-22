@@ -1,13 +1,29 @@
 // formulaire CONTROLLER
 
 function formulaireController($scope, $rootScope, $http, userService, $location) {
-	$scope.title1 = "Etape deux";
-	$scope.title2 = "Etape trois";
+	$scope.title = "Level one";
 	$scope.EMAIL_REGEXP = /^[a-zA-Z0-9._]+@[a-z]+\.[a-z.]{2,3}$/;
 
+	$scope.err = "";
 
 	$scope.next = function(){
-		$scope.displayNext = true;
+		var data = {}
+		data.email = $scope.field;
+		
+
+		userService.checkMail(data).then(function(res){
+			// SUCCESS
+			$scope.title = "Level two";
+			$scope.displayNext = true;
+			 	
+		}).catch( function(err){
+			//ERROR
+			$scope.err = err.data;
+			$scope.displayError = true;
+			setTimeout(function(){ $scope.displayError = false; $scope.err= ""}, 1000);
+		});
+
+
 	}
 
 	$scope.send = function(){
@@ -23,10 +39,11 @@ function formulaireController($scope, $rootScope, $http, userService, $location)
 				// SUCCESS
 				$rootScope.user = res.data;
 				$location.path('/home');
-			}).catch(function(){
+			}).catch(function(err){
 				//ERROR
-				$scope.pseudoUsed = true;
-				setTimeout(function(){ $scope.pseudoUsed = false}, 1000);
+				$scope.displayError = true;
+				$scope.err = err.data;
+				setTimeout(function(){ $scope.displayError = false; $scope.err= ""}, 1000);
 			});
 
 		} 

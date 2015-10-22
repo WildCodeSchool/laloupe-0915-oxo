@@ -8,6 +8,9 @@ function userService($http){
 		getById : function(id) {
 				return $http.get('/Users/' + id);
 		},
+		checkMail : function(email) {
+				return $http.post('/CheckMail', email);
+		},
 		update : function(id, account){
 				return $http.put('/Users/' + id, account);
 		},

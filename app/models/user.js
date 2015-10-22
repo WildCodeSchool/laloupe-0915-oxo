@@ -69,13 +69,25 @@ module.exports.find = function(req, res) {
 	});
 };
 
+module.exports.findByEmail = function(req, res, next) {
+	User.findOne({
+	where : {
+		field: req.body.email
+	}}).then(function (data) {
+		if (data)
+			res.status(409).send("Oh l'email " + req.body.email + " existe déjà !");
+		else
+			res.status(200).send();
+	});
+};
+
 module.exports.findByName = function(req, res, next) {
 	User.findOne({
 	where : {
 		pseudo: req.body.pseudo
 	}}).then(function (data) {
 		if (data)
-			res.sendStatus(409);
+			res.status(409).send("Oh le pseudo " + req.body.c + " existe déjà !");
 		else
 			next();
 	});
