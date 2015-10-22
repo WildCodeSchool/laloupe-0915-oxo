@@ -4,10 +4,9 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 	function load(){
 
 		userService.getById($rootScope.user.id).then(function(res){
-			$scope.users = res.data;
-			$scope.user = res.data.pseudo;
+			$scope.pseudo = res.data.pseudo;
 			$scope.ville = res.data.ville;
-			$scope.email = res.data.field;
+			$scope.mail = res.data.mail;
 			
 			console.log(res.data);
 			
@@ -22,5 +21,13 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 		$scope.findPlayer = function(){
 		$location.path('/findPlayer');
 	}
+
+		$scope.addGame = function() {
+		$location.path('/VideosGames');
+	}
+		$scope.editUser = function() {
+		$location.path('/editUser');
+	}
+
 	load();
 }

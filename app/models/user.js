@@ -7,9 +7,17 @@ var db = require('../../config/database.js');
 
 var User = db.define('user', {
 	ville: Sequelize.STRING,
-	field: Sequelize.STRING,
-	pseudo:Sequelize.STRING,
-	mdp: Sequelize.STRING
+	mail: Sequelize.STRING,
+	pseudo: Sequelize.STRING,
+	mdp: Sequelize.STRING,
+	anniversaire: Sequelize.DATE,
+	nom: Sequelize.STRING,
+	prenom: Sequelize.STRING,
+	avatar: Sequelize.BLOB,
+	sex: Sequelize.STRING,
+	description: Sequelize.STRING(1234)
+
+
 
 });
 
@@ -18,10 +26,17 @@ User.sync().then(function(){});
 
 module.exports.create = function(req, res) {
 	User.create({
-		ville: req.body.a,
-		field: req.body.b,
-		pseudo: req.body.c,
-		mdp: req.body.d
+		ville: req.body.ville,
+		mail: req.body.mail,
+		pseudo: req.body.pseudo,
+		mdp: req.body.mdp,
+		anniversaire: req.body.anniversaire,
+		nom: req.body.nom,
+		prenom: req.body.prenom,
+		avatar :req.body.avatar,
+		sex: req.body.sex,
+		presentation: req.body.presentation
+
 	}).then(function(user){
 		res.json(user);
 	})
@@ -57,7 +72,7 @@ module.exports.find = function(req, res) {
 module.exports.findByName = function(req, res, next) {
 	User.findOne({
 	where : {
-		pseudo: req.body.c
+		pseudo: req.body.pseudo
 	}}).then(function (data) {
 		if (data)
 			res.sendStatus(409);
@@ -68,10 +83,17 @@ module.exports.findByName = function(req, res, next) {
 
 module.exports.update = function(req, res){
 	User.update({
-		ville: req.body.a,
-		field: req.body.b,
-		pseudo: req.body.c,
-		mdp: req.body.d
+		ville: req.body.ville,
+		mail: req.body.mail,
+		pseudo: req.body.pseudo,
+		mdp: req.body.mdp,
+		anniversaire: req.body.anniversaire,
+		nom: req.body.nom,
+		prenom: req.body.prenom,
+		avatar: req.body.avatar,
+		sex: req.body.sex,
+		presentation: req.body.presentation
+
 	}, {
 		where: {
 			id: req.params.id

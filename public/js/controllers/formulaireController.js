@@ -12,10 +12,10 @@ function formulaireController($scope, $rootScope, $http, userService, $location)
 
 	$scope.send = function(){
 		var data = {};
-		data.a = $scope.ville;
-		data.b = $scope.field;
-		data.c = $scope.pseudo;
-		data.d = $scope.mdp;
+		data.ville = $scope.ville;
+		data.mail = $scope.field;
+		data.pseudo = $scope.pseudo;
+		data.mdp = $scope.mdp;
 
 		$scope.dtc = $scope.pseudo;
 		if ($scope.mdp === $scope.password2) {

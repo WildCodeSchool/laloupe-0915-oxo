@@ -1,3 +1,5 @@
+// EMAIL CONTROLLER
+
 function emailController($scope, $http, emailService) {
 
 	function load(){
