@@ -39,23 +39,3 @@ function formulaireController($scope, $http, userService, $location) {
 	load();
 }
 
-
-    /*$scope.send = function(){
-        var data = {};
-        data.c = $scope.pseudo;
-        data.d = $scope.mdp;
-        formulaireService.data(data).then(function(res){
-            //SUCCESS
-            if (res.data){
-                alert("bienvenue");
-                $location.path('/home');
-            }else{
-                alert("pseudo ou mot de passe incorrect");
-                $location.path('/formulaire');}
-        }, function(){
-            //ERROR
-        });
-    }
-
-    load();
-}*/
