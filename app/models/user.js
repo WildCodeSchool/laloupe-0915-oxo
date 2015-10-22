@@ -103,15 +103,3 @@ module.exports.delete = function(req, res){
 	})
 }
 
-
-
-/*module.exports.find = function(req, res){
- Formulaire.findOne({
-   where: {
-     pseudo: req.body.c,
-     mdp: req.body.d
-   }
- }).then(function(formulaire){
-   res.json(formulaire);
- })
-}*/
