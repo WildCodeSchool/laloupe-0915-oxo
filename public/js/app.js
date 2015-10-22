@@ -32,7 +32,8 @@ function config($routeProvider) {
 		.when('/email', {
 			templateUrl: 'views/email.html',
 			controller: 'emailController'
-		})		
+		})	
+    
 		.otherwise({
 			redirectTo: '/'
 		});

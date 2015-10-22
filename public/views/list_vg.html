@@ -1,3 +1,4 @@
+<div class=" case panel panel-default">
 <h1>Liste des jeux-vidéos</h1>
 
 
@@ -25,8 +26,9 @@
     
     <br/>
 	<p>{{(games.results | filter:searchGame.results.platforms.name).length }} <span ng-show="games.results.length > 0">{{(games.results | filter:searchGame.results.platforms.name).length > 1 ? 'resultats' : 'resultat'}} à votre recherche</span></p>
+</div>
 	
-	<div class=" resultGame row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
+	<div class=" case row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
 
         <h3 class="titre">{{ game.name }} -   <span class="date">{{game.original_release_date}}</span></h3 >
         <div class="col-md-2">
@@ -35,7 +37,9 @@
         <div class="col-md-10">
             <ul class="list-inline">
                 <p>Ajouter à ma collection</p>
-                <li  ng-repeat="platform in game.platforms | filter:searchGame.results.platforms.name"><button class="btn btn-primary btn-xs platform">{{platform.abbreviation}}</button></li>
+                <li  ng-repeat="platform in game.platforms | filter:searchGame.results.platforms.name">
+                    <button class="btn btn-primary btn-xs platform">{{platform.abbreviation}}</button>
+                </li>
 	        </ul>
         </div>
 	</div>

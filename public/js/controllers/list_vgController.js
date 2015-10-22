@@ -5,6 +5,7 @@ function list_vgController($scope, list_vgService) {
         $scope.loadingInProgress = true;
         list_vgService.gameSearch($scope.jeux, function(data){ 
             $scope.games = data;
+            console.log(data)
             $scope.loadingInProgress = false;
         });
     }
