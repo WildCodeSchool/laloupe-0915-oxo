@@ -52,6 +52,12 @@ h3.titre {
     background-color: white;
 }
 
+.case1 {
+    padding: 1%;
+    background-color: white;
+    margin-top: 130px;
+}
+
 label.searchGame {
     margin-top: 20px;
     margin-bottom: 0px;

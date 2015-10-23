@@ -7,21 +7,20 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 			$scope.pseudo = res.data.pseudo;
 			$scope.ville = res.data.ville;
 			$scope.mail = res.data.mail;
-			
-			
-            $scope.addGame = function() {
-                $location.path('/VideosGames');
-            }
-
-            $scope.editUser = function() {
-                $location.path('/editUser');
-            }
-
         });
                                                      
-    load();
         
     }
     
+    $scope.editUser = function() {
+                $location.path('/editUser');
+            }
+    
+    $scope.addGame = function() {
+                $location.path('/VideosGames');   
+    }
+    
+    load()
+      
 }
         

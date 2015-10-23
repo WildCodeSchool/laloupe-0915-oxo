@@ -1,6 +1,6 @@
 // LOGIN CONTROLLER
 function loginController($scope, $http, $rootScope, loginService, $location) {
-	$scope.title = "Connexion";
+	$scope.title = "OXO";
 
 	$scope.send = function(){
 		var data = {};

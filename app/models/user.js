@@ -72,7 +72,7 @@ module.exports.find = function(req, res) {
 module.exports.findByEmail = function(req, res, next) {
 	User.findOne({
 	where : {
-		field: req.body.email
+		mail: req.body.mail
 	}}).then(function (data) {
 		if (data)
 			res.status(409).send("Oh l'email " + req.body.email + " existe déjà !");
