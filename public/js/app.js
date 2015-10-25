@@ -70,7 +70,6 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .service('loginService', loginService)
     .service('userService', userService)
     .service('emailService', emailService)
-    .service('findService', findService)
 
     /*.factory('', )*/
     .run(run);

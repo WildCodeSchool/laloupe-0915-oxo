@@ -87,7 +87,7 @@ module.exports.findByName = function(req, res, next) {
 		pseudo: req.body.pseudo
 	}}).then(function (data) {
 		if (data)
-			res.status(409).send("Oh le pseudo " + req.body.c + " existe déjà !");
+			res.status(409).send("Oh le pseudo " + req.body.pseudo + " existe déjà !");
 		else
 			next();
 	});
