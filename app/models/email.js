@@ -6,9 +6,10 @@ var db = require('../../config/database.js');
 
 var Email = db.define('email', {
 	nom: Sequelize.STRING,
-	ville: Sequelize.STRING,
+	desti: Sequelize.STRING,
 	sujet:Sequelize.STRING,
-	message: Sequelize.STRING
+	message: Sequelize.STRING,
+	date: Sequelize.STRING
 });
 
 
@@ -19,9 +20,10 @@ Email.sync().then(function(){});
 module.exports.create = function(req, res) {
 	Email.create({
 		nom: req.body.name,
-		ville: req.body.city,
+		desti: req.body.desti,
 		sujet: req.body.subject,
-		message: req.body.msg
+		message: req.body.msg,
+		date: req.body.date
 	}).then(function(){
 		res.sendStatus(200);
 	})

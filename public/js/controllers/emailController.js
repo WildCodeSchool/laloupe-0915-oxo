@@ -1,6 +1,6 @@
 // EMAIL CONTROLLER
 
-function emailController($scope, $http, emailService) {
+function emailController($scope, $http, $rootScope, emailService, userService) {
 
 	function load(){
 		emailService.get().then(function(res){
@@ -12,7 +12,11 @@ function emailController($scope, $http, emailService) {
 			}
 		});
 	}
-
+	
+	/*$scope.users = $rootScope.user;
+	userService.get($rootScope.user.id, $scope.users).then(function(res){
+		$scope.users = $rootScope.user;
+	});*/
 
 	$scope.mailSelectionne = null;
 	$scope.mailSlct = function(mail) {
@@ -21,20 +25,32 @@ function emailController($scope, $http, emailService) {
 	}
 
 	$scope.send = function(){
+		
+		var now=new Date();
+		var jour=now.getDate();
+		var mois=now.getMonth()+1;
+		var an=now.getFullYear();
+		var heure=now.getHours();
+		var minute=now.getMinutes();
+		var date= jour+"/"+mois+"/"+an+" - "+heure+":"+minute;
+		$scope.date = date;
+		console.log($scope.date);		
+
 		var account = {};
 		account.name = $scope.nom;
-		account.city = $scope.ville;
+		account.desti = $scope.desti;
 		account.subject = $scope.sujet;
 		account.msg = $scope.message;
+		account.date = $scope.date; 
 
 		emailService.create(account).then(function(res){
-			load();
-			console.log(account);	
+			load();				
 		});
+
 
 		$scope.myEmail = true;	
 		$scope.nom = "";
-		$scope.ville = "";
+		$scope.desti = "";
 		$scope.sujet = "";
 		$scope.message = "";
 

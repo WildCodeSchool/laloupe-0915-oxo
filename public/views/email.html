@@ -5,12 +5,16 @@
 		<form class="form-inline spacer" name="form" data-toggle="validator">
 			<h3>Envoyez un message, c'est simple !</h3>
 			  <div class="form-group has succes">
-			    <label class="control-label" for="inputSuccess">Name</label>
-			    <input type="text" class="form-control" id="inputSuccess1" ng-model="nom" placeholder="nom" required>
+			    <label class="control-label" for="inputSuccess">De :</label>
+			    <span>{{ user.pseudo }}</span>
+
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleInputEmail2">Ville</label>
-			    <input type="text" class="form-control" id="example2" ng-model="ville" placeholder="ville" required>
+			    <label for="exampleInputEmail2">&Agrave; :</label>
+			    <select>
+			    	<option ng-repeat="User in Users">{{ users }}</option>
+			    </select>
+			    <!--input type="text" class="form-control" id="example2" ng-model="desti" placeholder="Destinataire" required-->
 			  </div>
 		</form>
 
@@ -18,14 +22,14 @@
 
 		<form>
 			   <div class="form-group">
-			  <label for="exampleInputEmail2">Sujet</label>	
+			  <label for="exampleInputEmail2">Sujet :</label>	
 				<input type="text" class="form-control" ng-model="sujet" placeholder="Sujet" required>
 			</div>
 		</form>
 
 		<form name="form">
 			<div class="form-group spacer">
-			    <label for="exampleInputEmail2">Message</label>	
+			    <label for="exampleInputEmail2">Message :</label>	
 			    <textarea ng-model="message" class="form-control" rows="3" required></textarea>
 			</div>
 		</form>
@@ -37,7 +41,8 @@
 				<div class="well spacer" ng-show="showMail">
 					<div class="borderBot">
 						<p><label>De:</label>  <span>{{ mailSelectionne.nom }}</span></p>
-						<p><label>Ville:</label>  <span>{{ mailSelectionne.ville }}</span></p>
+						<p><label>&Agrave;:</label>  <span>{{ mailSelectionne.desti }}</span></p>
+						<p><label>Date:</label>  <span>{{ mailSelectionne.date }}</span></p>
 						<p><label>Sujet:</label>  <span>{{ mailSelectionne.sujet }}</span></p>
 					</div>
 					<hr>
@@ -51,20 +56,20 @@
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th>Nom</th>
-					<th>Ville</th>
+					<th>De</th>
+					<th>&Agrave;</th>
 					<th>Sujet</th>
-					<th>Messages</th>
-					<th>Delete</th>
+					<th>Date</th>
+					<th>Supprimer</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="Email in Emails"  ng-click="mailSlct(Email)">
-					<td class="clickable">{{ Email.nom }}</td>
-					<td class="clickable">{{ Email.ville }}</td>
+					<td class="clickable">{{ user.pseudo }}</td>
+					<td class="clickable">{{ Email.desti }}</td>
 					<td class="clickable">{{ Email.sujet }}</td>
-					<td>{{ Email.message }}</td>
-					<td class="clickable"><img src="image/delete_16.png" ng-click="delete(Email)"></td>
+					<td>{{ Email.date }}</td>
+					<td class="clickable"><img src="image/delete.png" ng-click="delete(Email)"></td>
 				</tr>
 			<tbody>
 		</table>
@@ -73,10 +78,4 @@
 		</div>
 	</div>	
 			<!--button type="submit" class="btn btn-danger" confirm="Etes vous sûr ?" ng-click="delete(Email)">Delete</button-->			
-</div>
-
-<div class="row">
-	<div class="col-sm-12" id="googleMap" style="width:700px;height:500px;">
-	
-	</div>
 </div>

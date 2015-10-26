@@ -19,6 +19,9 @@ body{
 .clickable {
 	cursor: pointer;
 }
+.clickable img {
+    height: 20px;
+}
 #homeLogo {
 	height: 200px;
 	widows: 200px;
