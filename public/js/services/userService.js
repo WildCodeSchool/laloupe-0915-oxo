@@ -23,5 +23,6 @@ function userService($http){
 		findByUser : function(id) {
 				return $http.get('/user_games/' + id);
 		}
+		
 	}
 };

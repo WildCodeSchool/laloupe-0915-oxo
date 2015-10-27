@@ -59,6 +59,9 @@ function list_vgService($resource, $http) {
 
 			create : function(lien) {
 				return $http.post('/user_games', lien);
+			},
+			delete : function(id) {
+				return $http.delete('/user_games/' + id);
 			}
 
 

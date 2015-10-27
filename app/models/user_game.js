@@ -51,4 +51,14 @@ module.exports.verifGame = function(req, res, next) {
 	});
 };
 
+module.exports.delete = function(req, res){
+	user_game.destroy({
+		where: {
+			id: req.params.id
+		}
+	}).then(function(){
+		res.sendStatus(200);
+	})
+}
+
 
