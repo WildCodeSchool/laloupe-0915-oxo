@@ -30,6 +30,10 @@
 	
 	<div class=" case row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
 
+        <p ng-show="{{'mes' + game.id}}" ng-class=" successMessage ? 'bg-success' : 'bg-danger'">{{message}}</p>
+
+
+
         <h3 class="titre">{{ game.name }} -   <span class="date">{{game.original_release_date}}</span></h3 >
         <div class="col-md-2">
             <img class="gameIcon" src="{{game.image.thumb_url}} ">
@@ -38,7 +42,7 @@
             <ul class="list-inline">
                 <p>Ajouter à ma collection</p>
                 <li  ng-repeat="platform in game.platforms | filter:searchGame.results.platforms.name">
-                    <button class="btn btn-primary btn-xs platform">{{platform.abbreviation}}</button>
+                    <button class="btn btn-primary btn-xs platform" ng-click="select(game, platform)">{{platform.abbreviation}}</button>
                 </li>
 	        </ul>
         </div>

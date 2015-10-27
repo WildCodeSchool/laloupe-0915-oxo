@@ -1,0 +1,10 @@
+// CONTROLLER USER_GAME
+
+var user_game = require('../models/user_game.js');
+
+module.exports = function(app) {
+
+	app.get('/user_games/:id', user_game.find);
+
+	app.post('/user_games', user_game.verifGame, user_game.create);
+}
