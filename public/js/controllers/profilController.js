@@ -8,8 +8,12 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 			$scope.ville = res.data.ville;
 			$scope.mail = res.data.mail;
         });
-                                                     
-        
+
+     userService.findByUser($rootScope.user.id).then(function(res){
+            $scope.games = res.data;
+
+     }); 
+
     }
     
     $scope.editUser = function() {

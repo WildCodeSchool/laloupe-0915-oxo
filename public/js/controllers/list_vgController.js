@@ -15,6 +15,8 @@ function list_vgController($scope, list_vgService, $rootScope, $http, $timeout) 
             data.idGB = game.id;
             data.idUser = $rootScope.user.id;
             data.idPlateform = platform.id;
+            data.gameName = game.name;
+            data.gamePlateform = platform.name;
         
 
         $scope['mes' + game.id] = true;
