@@ -13,9 +13,11 @@ var User = db.define('user', {
 	anniversaire: Sequelize.DATE,
 	nom: Sequelize.STRING,
 	prenom: Sequelize.STRING,
-	avatar: Sequelize.TEXT,
+	avatar: Sequelize.BLOB,
 	sex: Sequelize.STRING,
 	description: Sequelize.STRING(1234)
+
+
 
 });
 
@@ -33,7 +35,7 @@ module.exports.create = function(req, res) {
 		prenom: req.body.prenom,
 		avatar :req.body.avatar,
 		sex: req.body.sex,
-		description: req.body.description
+		presentation: req.body.presentation
 
 	}).then(function(user){
 		res.json(user);
@@ -54,7 +56,7 @@ module.exports.login = function(req, res) {
 
 module.exports.findAll = function(req, res) {
 	User.findAll().then(function (data) {
-		res.json(user);
+		res.json(data);
 	});
 };
 
@@ -63,6 +65,16 @@ module.exports.find = function(req, res) {
 	where : {
 		id: req.params.id
 	}}).then(function (data) {
+		res.json(data);
+	});
+};
+
+module.exports.findByTown = function(req, res) {
+	User.findAll({
+	where : {
+		ville: req.params.location
+	}}).then(function (data) {
+	console.log(req.body);
 		res.json(data);
 	});
 };
@@ -102,7 +114,7 @@ module.exports.update = function(req, res){
 		prenom: req.body.prenom,
 		avatar: req.body.avatar,
 		sex: req.body.sex,
-		description: req.body.description
+		presentation: req.body.presentation
 
 	}, {
 		where: {

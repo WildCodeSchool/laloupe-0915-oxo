@@ -2,17 +2,11 @@
 
 function findService($http){
 	return {
-		get : function() {
-				return $http.get('/Formulaires');
+		get : function(location) {
+				return $http.get("http://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=metric&APPID=39583154fb47ae5a44360b9c46bb99d2");
 		},
-		update : function(id, account){
-				return $http.put('/Formulaires/' + id, account);
-		},
-		create : function(account) {
-				return $http.post('/Formulaires', account);
-		},
-		delete : function(id) {
-				return $http.delete('/Formulaires/' + id);
+		getTown : function(location) {
+				return $http.get('/Users/town/' + location);
 		}
-	}
-};
+}
+}
