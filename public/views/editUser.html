@@ -1,35 +1,35 @@
 <div class=" case panel panel-default ">
-	<form>
-		<div class="form-group">
-			<label>Mes infos</label>
-			<p>pseudo</p>
-			<input class="form-control" ng-model="currentUser.pseudo" >
-		</div>
-	<p>mail</p>	
-	<input class="form-control" ng-model="currentUser.mail" >
-	<p>ma ville</p>
-	<input class="form-control" ng-model="currentUser.ville" >
-	<p>anniversaire</p>
-	<input type="date" class="form-control" ng-model="currentUser.anniversaire" >
-	<p>nom</p>
-	<input class="form-control" ng-model="currentUser.nom" >
-	<p>prenom</p>
-	<input class="form-control" ng-model="currentUser.prenom" >
-	<p>sex</p>
-	<input class="form-control" ng-model="currentUser.sex" >
-	<p>teaser</p>
-	<input class="form-control" ng-model="currentUser.presentation" >
-	<p>avatar</p>
-	<input type="file" nv-file-select uploader="uploader" ng-model="currentUser.avatar">
-		<ul>
-			<li ng-repeat="item in uploader.queue">
-				name : <span ng-bind="item.file.name"></span><br/>
-				<button ng-click="item.upload()">upload</button>
-			</li>
-		</ul>
-	
-	<button class="btn btn-succes" ng-click="edit()">enregistrer les modificattions</button>
-	</form>
+    <form>
+        <div class="form-group">
+            <label>Mes infos</label>
+            <p>pseudo</p>
+            <input class="form-control" ng-model="currentUser.pseudo" >
+        </div>
+    <p>mail</p>    
+    <input class="form-control" ng-model="currentUser.mail" >
+    <p>ma ville</p>
+    <input class="form-control" ng-model="currentUser.ville" >
+    <p>anniversaire</p>
+    <input type="date" class="form-control" ng-model="currentUser.anniversaire" >
+    <p>nom</p>
+    <input class="form-control" ng-model="currentUser.nom" >
+    <p>prenom</p>
+    <input class="form-control" ng-model="currentUser.prenom" >
+    <p>sex</p>
+    <input class="form-control" ng-model="currentUser.sex" >
+    <p>teaser</p>
+    <input class="form-control" ng-model="currentUser.presentation" >
+    <p>avatar</p>
+    <input type="file" nv-file-select uploader="uploader" ng-model="currentUser.avatar" onchange="angular.element(this).scope().previewFile(this)">
+        <ul>
+            <li ng-repeat="item in uploader.queue">
+                name : <span ng-bind="item.file.name"></span><br/>
+                <button ng-click="item.upload()">upload</button>
+            </li>
+        </ul>
+    <img id="preview" height="200" alt="Image preview...">
+    
+    <button class="btn btn-succes" ng-click="edit()">enregistrer les modificattions</button>
+    </form>
 </div>
-
 
