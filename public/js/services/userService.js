@@ -19,6 +19,10 @@ function userService($http){
 		},
 		delete : function(id) {
 				return $http.delete('/Users/' + id);
+		},
+		findByUser : function(id) {
+				return $http.get('/user_games/' + id);
 		}
+		
 	}
 };
