@@ -1,5 +1,5 @@
 // FIND CONTROLLER 
-function findController($scope, $http, $rootScope, findService){
+function findController($scope, $http, $rootScope, userService, findService){
 	var firstTime = true;
 	var map = {};
 
@@ -54,6 +54,8 @@ function findController($scope, $http, $rootScope, findService){
 					$scope.town = res.data.length;
 					$scope.listPlayers = res.data;
 					$scope.trouverJoueur = true;
+                    console.log(res.data)
+                    $scope.avatar = res.data.avatar;
 
 					if (res.data.length > 1) {
 						$scope.pluriel = "s";
@@ -66,5 +68,14 @@ function findController($scope, $http, $rootScope, findService){
 			}
 			findPlayer();
 	}
+    
+    function load(){
+        
+		userService.findByUser($rootScope.user.id).then(function(res){
+            $scope.games = res.data;
+     }); 
+	}
+    
+    load();
 
 }
