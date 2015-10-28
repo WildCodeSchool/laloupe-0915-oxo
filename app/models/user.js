@@ -13,7 +13,7 @@ var User = db.define('user', {
 	anniversaire: Sequelize.DATE,
 	nom: Sequelize.STRING,
 	prenom: Sequelize.STRING,
-	avatar: Sequelize.BLOB,
+	avatar: Sequelize.TEXT,
 	sex: Sequelize.STRING,
 	description: Sequelize.STRING(1234)
 
@@ -35,7 +35,7 @@ module.exports.create = function(req, res) {
 		prenom: req.body.prenom,
 		avatar :req.body.avatar,
 		sex: req.body.sex,
-		presentation: req.body.presentation
+		description: req.body.description
 
 	}).then(function(user){
 		res.json(user);
@@ -114,7 +114,7 @@ module.exports.update = function(req, res){
 		prenom: req.body.prenom,
 		avatar: req.body.avatar,
 		sex: req.body.sex,
-		presentation: req.body.presentation
+		description: req.body.description
 
 	}, {
 		where: {
