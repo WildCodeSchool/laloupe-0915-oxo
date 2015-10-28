@@ -1,5 +1,5 @@
 //LIST VIDEOS GAMES SERVICE
-function list_vgService($resource) {
+function list_vgService($resource, $http) {
 		return {
 			/**
 			 * @private
@@ -40,7 +40,7 @@ function list_vgService($resource) {
 			    $resource('http://www.giantbomb.com/:action',
 			        {
 			          action: 'api/games', 
-			          field_list: 'name,id,aliases,genres,image,original_release_date,releases,platforms,api_detail_url,site_detail_url', 
+			          field_list: 'name,id,aliases,genre,image,original_release_date,releases,platforms,api_detail_url,site_detail_url', 
 			          filter: 'name:' + searchString, 
 			          api_key: this._apiKey, 
 			          format: 'jsonp', 
@@ -51,6 +51,22 @@ function list_vgService($resource) {
 			        }).get({}, function(result){
 			          callback(result);
 			        });  
-		    	}
+		    },
+        
+			get : function() {
+				return $http.get('/user_games/' + id);
+			},
+
+			create : function(lien) {
+				return $http.post('/user_games', lien);
+			},
+			delete : function(id) {
+				return $http.delete('/user_games/' + id);
+			}
+
+
         }
+
+
+
 }

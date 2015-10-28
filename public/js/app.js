@@ -39,6 +39,11 @@ function config($routeProvider) {
 		.when('/editUser', {
 			templateUrl: 'views/editUser.html',
 			controller: 'editUserController'
+		})
+
+		.when('/editGames', {
+			templateUrl: 'views/editGames.html',
+			controller: 'editGamesController'
 		})	
 
 		.otherwise({
@@ -64,6 +69,7 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
   	.controller('findController', findController)
     .controller('profilController', profilController)
     .controller('editUserController', editUserController)
+    .controller('editGamesController', editGamesController)
 
     .service('list_vgService', list_vgService)
     .service('findService', findService)

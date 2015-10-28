@@ -27,7 +27,8 @@
 	<div class="col-sm-offset-1 col-sm-3">
 		<h3>Mes jeux</h3>
 		<button ng-click='addGame()'>ajouter un jeux</button>
-			<ul>		
+			<ul>
+				<li ng-repeat="game in games">{{game.gameName}} - {{game.gamePlateform}}</li>		
 			</ul>
 	</div>
 
