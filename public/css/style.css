@@ -83,3 +83,16 @@ img.searchGame {
     border: #0269C2 ;
     
 }
+
+/* PROFIL */
+
+.section {
+    padding: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+.range {
+    padding: 0 0 0 0;
+    margin: 0 auto;
+}
