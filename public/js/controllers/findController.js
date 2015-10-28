@@ -66,4 +66,5 @@ function findController($scope, $http, $rootScope, findService){
 			}
 			findPlayer();
 	}
+
 }
