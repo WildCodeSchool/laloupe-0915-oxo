@@ -8,6 +8,8 @@ module.exports 	= function(app) {
 
 	app.get('/Users/:id', User.find);
 
+	app.get('/Users/town/:location', User.findByTown);
+
 	app.post('/Users', User.findByName, User.create);
 
 	app.post('/CheckMail', User.findByEmail);

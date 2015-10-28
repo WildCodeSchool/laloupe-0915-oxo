@@ -34,7 +34,7 @@ body{
 	margin-top: 20px;
 }
 
-/*RECHERCHE JEUX VIDEO*/
+/*$RECHERCHE JEUX VIDEO*/
 
 .gameIcon {
    max-height: 120px;
@@ -82,4 +82,34 @@ img.searchGame {
     color : #EFEFEF;
     border: #0269C2 ;
     
+}
+
+/*     $MAP      */
+#map {
+    height: 450px;
+    margin-top: 1px;
+}
+.listPlayer {
+    height: 70px;
+    background-color: white;
+    margin-top: 4px;
+    padding: 3px 0px 0px 8px;
+    border-radius: 5px;
+
+}
+.css1 {
+    background-color: #222222;
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 3px solid #0269C2; 
+}
+.css2 {
+    background-color: #404040;
+}
+label {
+    margin-bottom: 0px;
+}
+.noPadding {
+    padding-right: 1px;
 }

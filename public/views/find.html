@@ -1,16 +1,44 @@
-<div class="row">
 
-	<h3>Trouver un joueur proche de chez vous</h3>
-	<span>Distance</span>
-	<select>
-		<option>10 Km</option>
-		<option>30 Km</option>
-	</select>
-	<span>Choisir un jeux</span>
-	<select>
-		<option>Jeux</option>
-	</select>		
 
-  	<div class="center-block" id="map" style="width:900px;height:380px;"></div>
+	<h3>Trouvez un joueur proche de chez vous !</h3>
+
+<div class="row css1">
+		<div class="col-sm-3 border">
+			<label ng-show="trouverJoueur">{{ town }} gamer{{ pluriel }} trouvé{{ pluriel }} !</label>
+		</div>
+
+	<div class="col-sm-9 border">		
+		<form class="form-inline" ng-submit="send()">
+			<div class="form-group">
+				<label> Trouver une ville:</label>			
+				<input class="form-control" ng-model="findCity" type="text" placeholder="ville">
+			</div>
+				<button type="submit" class="btn btn-primary">OK</button>
+		<!--span>Distance</span>
+		<select>
+			<option>10 Km</option>
+			<option>30 Km</option>
+		</select-->
+			<div class="form-group">
+				<label>Choisir un jeux</label>
+				<select class="form-control">
+					<option>Jeux</option>
+				</select>
+			</div>
+		</form>
+	</div>	
+</div>	
+
+<div class="row css2">
+
+  	<div class="col-sm-3 noPadding">
+  		<div class="listPlayer" ng-repeat="listPlayer in listPlayers">{{listPlayer.pseudo}}<a href="#">Voir le profil</a><br />
+  		<a href="#">Ajouter à ma guilde</a><br />
+  		<a href="#">Envoyer un msg</a>
+  		</div>
+  	</div>
+
+  	<div class="col-sm-9 noPadding">
+  		<div class="center-block" id="map"></div>
+  	</div>
 </div>
-

@@ -69,6 +69,16 @@ module.exports.find = function(req, res) {
 	});
 };
 
+module.exports.findByTown = function(req, res) {
+	User.findAll({
+	where : {
+		ville: req.params.location
+	}}).then(function (data) {
+	console.log(req.body);
+		res.json(data);
+	});
+};
+
 module.exports.findByEmail = function(req, res, next) {
 	User.findOne({
 	where : {
