@@ -17,7 +17,7 @@ function editGamesController($scope, $http, $rootScope, $location, list_vgServic
 	};
 
 	$scope.retour = function(){
-		$location.path('/profil');
+		$location.path('/home');
 	};
 
 	

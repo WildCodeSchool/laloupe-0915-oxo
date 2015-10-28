@@ -6,7 +6,7 @@
 <form class="form-inline searchGame">
     <input  class="form-control searchGame" placeholder="ex: Battlefront, Fifa, ..." ng-model="jeux" type="text" name="jeux" ng-disabled="loadingInProgress">
     <button class="btn btn-primary searchGame" ng-click="get()" ng-disabled="loadingInProgress">Chercher</button>
-    <select class="form-control searchGame" ng-model="searchGame.results.platforms.name" ng-disabled="loadingInProgress">
+    <select class="form-control  searchGame" ng-model="searchGame.results.platforms.name" ng-disabled="loadingInProgress">
         <option value="">Trier par plateforme</option>
         <option value="PC">PC</option>
         <option value="Playstation 4">Playstation 4</option>
