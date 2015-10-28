@@ -12,11 +12,6 @@ function emailController($scope, $http, $rootScope, emailService, userService) {
 			}
 		});
 	}
-	
-	/*$scope.users = $rootScope.user;
-	userService.get($rootScope.user.id, $scope.users).then(function(res){
-		$scope.users = $rootScope.user;
-	});*/
 
 	$scope.mailSelectionne = null;
 	$scope.mailSlct = function(mail) {

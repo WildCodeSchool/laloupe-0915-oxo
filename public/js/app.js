@@ -16,17 +16,12 @@ function config($routeProvider) {
 			controller: 'formulaireController'
 		})
 
-		.when('/home', {
-			templateUrl: 'views/home.html',
-			controller: 'homeController'
-		})	
-
 		.when('/find', {
 			templateUrl: 'views/find.html',
 			controller: 'findController'
 		})	
 
-		.when('/profil', {
+		.when('/home', {
 			templateUrl: 'views/profil.html',
 			controller: 'profilController'
 		})
@@ -64,7 +59,6 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('list_vgController', list_vgController)
     .controller('loginController', loginController)
     .controller('emailController', emailController)
-    .controller('homeController', homeController)
     .controller('formulaireController', formulaireController)
   	.controller('findController', findController)
     .controller('profilController', profilController)

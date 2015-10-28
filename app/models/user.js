@@ -17,6 +17,8 @@ var User = db.define('user', {
 	sex: Sequelize.STRING,
 	description: Sequelize.STRING(1234)
 
+
+
 });
 
 User.sync().then(function(){});
@@ -54,7 +56,7 @@ module.exports.login = function(req, res) {
 
 module.exports.findAll = function(req, res) {
 	User.findAll().then(function (data) {
-		res.json(user);
+		res.json(data);
 	});
 };
 
@@ -63,6 +65,16 @@ module.exports.find = function(req, res) {
 	where : {
 		id: req.params.id
 	}}).then(function (data) {
+		res.json(data);
+	});
+};
+
+module.exports.findByTown = function(req, res) {
+	User.findAll({
+	where : {
+		ville: req.params.location
+	}}).then(function (data) {
+	console.log(req.body);
 		res.json(data);
 	});
 };
