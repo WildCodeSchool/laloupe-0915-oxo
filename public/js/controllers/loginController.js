@@ -2,7 +2,18 @@
 function loginController($scope, $http, $rootScope, loginService, $location) {
 	$scope.title = "OXO";
 
-	$scope.send = function(){
+
+	$scope.connect = function(){
+		loginService.connect($scope.user).then(function(res){
+			$rootScope.user = res.data;
+			$location.path('/home');
+		}).catch(function(){
+			$rootScope.loginMessage.title = "Connexion error";
+			$rootScope.loginMessage.message = 'Error login or password';
+		});
+	}
+
+	/*$scope.send = function(){
 		var data = {};
 		data.pseudo = $scope.pseudo;
 		data.mdp = $scope.mdp;
@@ -28,5 +39,6 @@ function loginController($scope, $http, $rootScope, loginService, $location) {
 
 		$location.path('/formulaire');
 
-	}
+	}*/
 }
+

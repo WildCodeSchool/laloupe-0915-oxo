@@ -120,9 +120,14 @@ label {
     padding: 0px 5px 0px 5px;
 }
 .avatar {
-    height: 60px;
-    float: right;
+    height: 65px;
+    padding: 3px;
 }
+
+.avatarbox {
+    padding: 0;
+}
+
 .center {
     float: right;
 }
@@ -133,6 +138,10 @@ label {
 .logoOxo {
     height: 10px;
     margin-top: 1px;
+}
+
+.disable {
+    background-color: rgba(255, 255, 255, .7);
 }
 
 /* PROFIL */
@@ -146,5 +155,11 @@ label {
 .range {
     padding: 0 0 0 0;
     margin: 0 auto;
+}
+
+.imghome {
+    max-width: 250px;
+    border-radius: 5px 5px;
+    margin-top: 5%;
 }
 

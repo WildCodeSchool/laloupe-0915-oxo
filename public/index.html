@@ -60,6 +60,7 @@
                 <li ng-class="{active: activetab=='/'}"><a href="#/">Accueil</a></li>
             </ul>
             <li class="pull-right user" ng-if="user">{{ user.pseudo }}</li>
+            <li ng-if="user"><a href="" ng-click="logout()">Logout</a></li>
         </div>
     </nav>
 
