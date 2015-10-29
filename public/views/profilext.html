@@ -1,0 +1,33 @@
+<h1> Profil de {{ pseudo }}</h1>
+
+<div class="row">
+    <div class="col-md-3 range">
+        <div class="section panel panel-default">
+            <img class="imghome img-responsive center-block" ng-src="{{avatar}}">
+            <p>{{ ville }}</p>
+        </div>
+        <h3>A propos</h3>
+        <div class="section panel panel-default"> 
+            <p>Nom/prénom: {{nom}} {{prenom}}</p>    
+            <p>Habite à {{ ville }}</p>
+            <p>Naissance: {{anniversaire}}</p>
+            <p>Sex: {{sex}}</p>  
+            <p>Présentation: {{teaser}}</p> 
+        </div> 
+    </div>
+    <div class="col-md-6 range">
+        <h3 class="section">A propos de {{pseudo}}</h3>
+        <div class="section panel panel-default"> 
+            <h4>Info utile</h4>
+            <p> {{pseudo}} n'a pas encore publié d'actualités</p>
+        </div>
+    </div>
+    <div class="col-md-3 range">
+       <div class="section panel panel-default">
+           <h3>Ses Jeux</h3>
+            <ul>
+                <li ng-repeat="game in games">{{game.gameName}} - {{game.gamePlateform}}</li>		
+            </ul>
+        </div>
+    </div>
+</div>

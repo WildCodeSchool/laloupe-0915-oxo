@@ -38,7 +38,7 @@
   			   <img class="avatar img-responsive" ng-src="{{listPlayer.avatar}}"> 
   			</div>
   			<div class="col-sm-8 ">
-  			    <p>{{listPlayer.pseudo}}&nbsp;<a href="#" ng-if="listPlayer.id != user.id">Voir le profil</a></p>	  			
+  			    <p>{{listPlayer.pseudo}}&nbsp;<a href="#/vueprofil/{{listPlayer.id}}" ng-if="listPlayer.id != user.id">Voir le profil</a></p>	  			
 	  		    <p><a href="#" ng-if="listPlayer.id != user.id">Ajouter à ma guilde</a></p>
 	  		    <p><a href="#" ng-if="listPlayer.id != user.id">Envoyer un msg</a></p>
   			</div>
