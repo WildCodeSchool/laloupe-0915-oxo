@@ -163,3 +163,7 @@ label {
     margin-top: 5%;
 }
 
+.wrap {
+    background: url('../image/background.jpg') no-repeat;
+    background-size: 100%;
+}
