@@ -2,15 +2,51 @@
 
 function emailController($scope, $http, $rootScope, emailService, userService) {
 
-	function load(){
-		emailService.get().then(function(res){
-		$scope.Emails = res.data;
-			if ($scope.Emails.length > 1) {
+	function loadReceipt(){
+		emailService.getDesti($rootScope.user.id).then(function(res){
+			$scope.nom = res.data.idUserSend;
+			console.log(res);
+
+			$scope.EmailsR = res.data;
+			if ($scope.EmailsR.length > 1) {
 				$scope.msgS = "s";
 			} else {
 				$scope.msgS = "";
 			}
 		});
+	}
+	loadReceipt();
+
+	function loadSend(){
+		emailService.getUsersSend($rootScope.user.id).then(function(res){
+			console.log();
+
+			$scope.EmailsS = res.data;
+			if ($scope.EmailsS.length > 1) {
+				$scope.sendMsgS = "s";
+			} else {
+				$scope.sendMsgS = "";
+			}
+		});
+	}
+	loadSend();
+
+	function getUsers(){
+		userService.get().then(function(res){
+			$scope.users = res.data;
+		});
+	}
+	getUsers();
+
+	$scope.msgReceipt = true;
+	$scope.recevoir = function(){
+		$scope.msgReceipt = true;
+		$scope.msgSend = false;
+	}
+
+	$scope.envoyer = function(){
+		$scope.msgSend = true;
+		$scope.msgReceipt = false;
 	}
 
 	$scope.mailSelectionne = null;
@@ -28,20 +64,23 @@ function emailController($scope, $http, $rootScope, emailService, userService) {
 		var heure=now.getHours();
 		var minute=now.getMinutes();
 		var date= jour+"/"+mois+"/"+an+" - "+heure+":"+minute;
-		$scope.date = date;
-		console.log($scope.date);		
+		
+
 
 		var account = {};
-		account.name = $scope.nom;
-		account.desti = $scope.desti;
+		//account.idUserSend = ;
+		account.idUserSend = $rootScope.user.id;
+		//account.idUserReceive = ;
+		account.idUserReceive = $scope.search;
 		account.subject = $scope.sujet;
 		account.msg = $scope.message;
-		account.date = $scope.date; 
+		account.date = $scope.date;
+
+		$scope.date = date;
 
 		emailService.create(account).then(function(res){
-			load();				
+			loadReceipt();				
 		});
-
 
 		$scope.myEmail = true;	
 		$scope.nom = "";
@@ -49,24 +88,17 @@ function emailController($scope, $http, $rootScope, emailService, userService) {
 		$scope.sujet = "";
 		$scope.message = "";
 
-
+		loadSend();
 	}
 
-	$scope.update = function(Email){
-		emailService.update(Email.id, Email).then(function(res){
-			load();
-		});
-	}
-
-	$scope.delete = function(Email){
+		$scope.delete = function(Email){
 		emailService.delete(Email.id).then(function(res){
-			load();
+			loadSend();
+			loadReceipt();
 		$scope.showMail = false;
 		alert("Message supprimé.");
 	});
 
 	}
-
-	load();
 
 }
