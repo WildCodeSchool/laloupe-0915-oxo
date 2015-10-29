@@ -113,7 +113,7 @@ function run($rootScope, $location, loginService){
 		$rootScope.loginMessage.title = ''; 
 		$rootScope.loginMessage.message = ''; 
 		connectService.disconnect().then(function(){
-			$location.url('/login');
+			$location.url('/');
 		})
 	}
 }
