@@ -52,13 +52,17 @@
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-border" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a href="#/"><img src="image/OXOlogo.png" width="70px"></a>
+                <a href="#/home"><img src="image/OXOlogo.png" width="70px"></a>
             </div>
             <ul class="nav navbar-nav">
-                <li ng-class="{active: activetab=='/'}"><a href="#/">Accueil</a></li>
+                <li ng-if="user" ng-class="{active: activetab=='/find'}"><a href="#/find">Chercher un joueur</a></li>
+                <li ng-if="user" ng-class="{active: activetab=='/VideosGames'}"><a href="#/VideosGames">Chercher un jeu</a></li>
             </ul>
-            <li class="pull-right user" ng-if="user">{{ user.pseudo }}</li>
-            <li ng-if="user"><a href="" ng-click="logout()">Logout</a></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="user" ng-if="user"><a href="#/profil">{{ user.pseudo }}</a></li>
+                <li class="user" ng-if="user"><a href="" ng-click="logout()">Logout</a></li>
+            </ul>
+            
         </div>
     </nav>
 
