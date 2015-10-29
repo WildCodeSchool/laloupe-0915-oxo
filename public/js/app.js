@@ -22,8 +22,8 @@ function config($routeProvider) {
 		})	
 
 		.when('/home', {
-			templateUrl: 'views/profil.html',
-			controller: 'profilController'
+			templateUrl: 'views/home.html',
+			controller: 'homeController'
 		})
 
 		.when('/email', {
@@ -40,6 +40,11 @@ function config($routeProvider) {
 			templateUrl: 'views/editGames.html',
 			controller: 'editGamesController'
 		})	
+
+		.when('/profil', {
+			templateUrl: 'views/profil.html',
+			controller: 'profilController'
+		})
 
 		.otherwise({
 			redirectTo: '/'
@@ -61,6 +66,7 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('emailController', emailController)
     .controller('formulaireController', formulaireController)
   	.controller('findController', findController)
+    .controller('homeController', homeController)
     .controller('profilController', profilController)
     .controller('editUserController', editUserController)
     .controller('editGamesController', editGamesController)

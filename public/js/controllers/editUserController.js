@@ -6,7 +6,7 @@ function editUserController($scope, $http, $rootScope, $location, userService) {
     $scope.edit = function(){            
         userService.update($rootScope.user.id, $scope.currentUser).then(function(res){
             $rootScope.user = $scope.currentUser;
-            $location.path('/home');
+            $location.path('/profil');
         });
     
     }
