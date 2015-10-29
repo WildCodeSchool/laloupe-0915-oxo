@@ -62,11 +62,7 @@ function config($routeProvider) {
 		.when('/profil', {
 			templateUrl: 'views/profil.html',
 			controller: 'profilController',
-<<<<<<< HEAD
-			resolve: {
-=======
             resolve: {
->>>>>>> bb03793f754ed663eb98d60221a26a5f0a210bdd
 				connected: checkIsConnected
 			}
 		})
