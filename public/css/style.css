@@ -120,9 +120,14 @@ label {
     padding: 0px 5px 0px 5px;
 }
 .avatar {
-    height: 60px;
-    float: right;
+    height: 85px;
+    padding: 3px;
 }
+
+.avatarbox {
+    padding: 0;
+}
+
 .center {
     float: right;
 }
