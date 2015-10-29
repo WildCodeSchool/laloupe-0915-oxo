@@ -112,7 +112,7 @@ function run($rootScope, $location, loginService){
 		$rootScope.user = null;
 		$rootScope.loginMessage.title = ''; 
 		$rootScope.loginMessage.message = ''; 
-		connectService.disconnect().then(function(){
+		loginService.disconnect().then(function(){
 			$location.url('/');
 		})
 	}
