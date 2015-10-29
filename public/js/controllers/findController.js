@@ -2,15 +2,17 @@
 function findController($scope, $http, $rootScope, userService, findService){
 	var firstTime = true;
 	var map = {};
+    var positionSaved;
 
 	function init(position){
+        positionSaved = position;
 		map = L.map('map').setView([position.lat, position.lon], 12);
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 		var popup = L.popup()
 		    .setLatLng([position.lat, position.lon])
-		    .setContent("Tu es à " + $scope.findCity + "."+ " Il y a "+ $scope.town + " gamer"+ $scope.pluriel+"!")
+		    .setContent("Tu es à " + $scope.findCity + "."+ " Il y a "+ $scope.town + " oxoer"+ $scope.pluriel+"!")
 		    .openOn(map);
 	    
 		firstTime = false;
@@ -21,10 +23,14 @@ function findController($scope, $http, $rootScope, userService, findService){
 		map.panTo(new L.LatLng(position.lat, position.lon));
 		var popup = L.popup()
 		    .setLatLng([position.lat, position.lon])
-		    .setContent("Tu es à " + $scope.findCity + "."+ " Il y a "+ $scope.town + " gamer"+ $scope.pluriel+"!")
+		    .setContent("Tu es à " + $scope.findCity + "."+ " Il y a "+ $scope.town + " oxoer"+ $scope.pluriel+"!")
 		    .openOn(map);
 	}
 
+    
+    $scope.selectGame = function(){
+        updateMap(positionSaved);
+    }
 	//$scope.logoOxo = 'image/OXOlogo.png';
 	$scope.map = true;
 
@@ -54,8 +60,8 @@ function findController($scope, $http, $rootScope, userService, findService){
 					$scope.town = res.data.length;
 					$scope.listPlayers = res.data;
 					$scope.trouverJoueur = true;
-                    console.log(res.data)
-                    $scope.avatar = res.data.avatar;
+                    
+                    console.log(res.data);
 
 					if (res.data.length > 1) {
 						$scope.pluriel = "s";
@@ -63,9 +69,19 @@ function findController($scope, $http, $rootScope, userService, findService){
 						$scope.pluriel = "";
 					}
 
-					console.log(res.data);
+                    $scope.listPlayers.forEach(function(player){
+                        userService.findByUser(player.id).then(function(res){
+                            player.games = res.data;
+                            console.log(res.data)
+                        });
+                    })
+                    
 				});
+                
+                
+                
 			}
+                
 			findPlayer();
 	}
     
@@ -75,6 +91,8 @@ function findController($scope, $http, $rootScope, userService, findService){
             $scope.games = res.data;
      }); 
 	}
+    
+    $scope.user = $rootScope.user;
     
     load();
 

@@ -3,7 +3,7 @@
 	<h3>Trouvez un joueur proche de chez vous !</h3>
 <div class="row css1">
 		<div class="col-sm-3 border">
-			<label ng-show="trouverJoueur">{{ town }} gamer{{ pluriel }} trouvé{{ pluriel }} !</label>
+			<label ng-show="trouverJoueur">{{(listPlayers | filter:listPlayer.games.idGB).length}} {{(listPlayers | filter:listPlayer.games.idGB).length> 1 ? 'gamers' : 'gamer' }} {{(listPlayers | filter:listPlayer.games.idGB).length> 1 ? 'trouvés' : 'trouvé' }} </label>
 		</div>
 
 	<div class="col-sm-9 border">		
@@ -20,9 +20,9 @@
 		</select-->
 			<div class="form-group center">
 				<label>Games:</label>
-				<select class="form-control max-width">
-					<option>Choisis un jeux !</option>
-					<option ng-repeat="game in games">{{game.gameName}} - {{game.gamePlateform}}</option>
+				<select class="form-control max-width" ng-model="listPlayer.games.idGB" ng-change="selectGame()">
+					<option value="">Choisis un jeux !</option>
+					<option ng-repeat="game in games" value="{{game.idGB}}">{{game.gameName}} - {{game.gamePlateform}}</option>
 				</select>
 			</div>
 		</form>
@@ -32,14 +32,14 @@
 <div class="row css2">
 
   	<div class="col-sm-3 padd">
-  		<div class="listPlayer" ng-repeat="listPlayer in listPlayers">
+  		<div class="listPlayer" ng-repeat="listPlayer in listPlayers | filter:listPlayer.games.idGB" ng-class="{disable: listPlayer.id == user.id}">
   			<div class="avatarbox col-sm-4">
   			   <img class="avatar img-responsive" ng-src="{{listPlayer.avatar}}"> 
   			</div>
   			<div class="col-sm-8 ">
-  			    <p>{{listPlayer.pseudo}}&nbsp;<a href="#">Voir le profil</a></p>	  			
-	  		    <p><a href="#">Ajouter à ma guilde</a></p>
-	  		    <p><a href="#">Envoyer un msg</a></p>
+  			    <p>{{listPlayer.pseudo}}&nbsp;<a href="#" ng-if="listPlayer.id != user.id">Voir le profil</a></p>	  			
+	  		    <p><a href="#" ng-if="listPlayer.id != user.id">Ajouter à ma guilde</a></p>
+	  		    <p><a href="#" ng-if="listPlayer.id != user.id">Envoyer un msg</a></p>
   			</div>
   			
   		</div>
