@@ -1,25 +1,25 @@
 
 <div class="row">
-    <div class="col-md-3 range">
-        <div class="section panel panel-default">
-            <img class="imghome img-responsive center-block" ng-src="{{avatar}}">
+    <div class="col-md-3 range1">
+        <div class="section1 panel panel-default">
+            <img class="imghome1 img-responsive center-block" ng-src="{{avatar}}">
             <p>{{ pseudo }}</p>
             <p>{{ ville }}</p>
         </div>
-        <div class="section">   
+        <div class="section1">   
            <button class="btn btn-primary" ng-click="voirProfil()">Voir mon Profil</button>
        </div>
     </div>
-        <div class="col-md-3 range">
-        <h3 class="section">Les dernières infos de {{ pseudo }}</h3>
-        <div class="section panel panel-default"> 
+        <div class="col-md-6 range1">
+        <h3 class="section1">Les dernières infos de {{ pseudo }}</h3>
+        <div class="section1 panel panel-default"> 
             <h4>Bienvenue sur OXO !</h4>
             <p> L'application qui rapproche les joueurs. Vous voulez trouver des joueurs qui aiment les mêmes jeux que vous et ce, prêt de chez vous ? OXO est là ! Vous pouvez trouver un joueur, un jeux ou modifier votre profil.</p>
         </div>
     </div>
-    <div class="col-md-3 range">
-    <h3>Mes Jeux</h3>
-       <div class="section panel panel-default">
+    <div class="col-md-3 range1">
+       <div class="section1 panel panel-default">
+            <h3>Mes Jeux</h3>
            <ul>
                 <li ng-repeat="game in games">{{game.gameName}} - {{game.gamePlateform}}</li>       
             </ul>

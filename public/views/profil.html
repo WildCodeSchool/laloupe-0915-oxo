@@ -13,10 +13,8 @@
             <p>Naissance: {{anniversaire}}</p>
             <p>Sex: {{sex}}</p>  
             <p>Présentation: {{teaser}}</p> 
-        </div> 
-        <div class="section">   
             <button class="btn btn-primary" ng-click="editUser()">Edit</button>
-        </div>
+        </div> 
     </div>
     <div class="col-md-6 range">
         <h3 class="section">A propos de moi</h3>
@@ -31,6 +29,7 @@
             <ul>
                 <li ng-repeat="game in games">{{game.gameName}} - {{game.gamePlateform}}</li>		
             </ul>
+            <button class="btn btn-primary bt" ng-click="editGames()">Delete</button>
         </div>
     </div>
 </div>

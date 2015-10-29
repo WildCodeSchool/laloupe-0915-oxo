@@ -19,6 +19,7 @@ function profilController($scope, $http, $rootScope, $location, userService) {
      }); 
 
     }
+
     
     $scope.editUser = function() {
                 $location.path('/editUser');
@@ -27,7 +28,12 @@ function profilController($scope, $http, $rootScope, $location, userService) {
     $scope.addGame = function() {
                 $location.path('/VideosGames');   
     }
+
+    $scope.editGames = function() {
+                $location.path('/editGames');
+            }
     
     load()
       
 }
+
