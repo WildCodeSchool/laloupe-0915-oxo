@@ -61,11 +61,22 @@ function config($routeProvider) {
 
 		.when('/profil', {
 			templateUrl: 'views/profil.html',
-			controller: 'profilController'
+			controller: 'profilController',
+            resolve: {
+				connected: checkIsConnected
+			}
 		})
+    
+        .when('/vueprofil/:id' , {
+            templateUrl: 'views/profilext.html',
+            controller: 'profilextController',
+            resolve: {
+                    connected: checkIsConnected
+                }
+        })
 
 		.otherwise({
-			redirectTo: '/'
+			redirectTo: '/home'
 		});
 }
 
@@ -135,6 +146,7 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('profilController', profilController)
     .controller('editUserController', editUserController)
     .controller('editGamesController', editGamesController)
+    .controller('profilextController', profilextController)
 
     .service('list_vgService', list_vgService)
     .service('findService', findService)
