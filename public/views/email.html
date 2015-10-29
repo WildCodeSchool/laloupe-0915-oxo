@@ -42,7 +42,7 @@
 					<div class="borderBot">
 						<p><label>De:</label>  <span>{{ mailSelectionne.nom }}</span></p>
 						<p><label>&Agrave;:</label>  <span>{{ mailSelectionne.desti }}</span></p>
-						<p><label>Date:</label>  <span>{{ mailSelectionne.date }}</span></p>
+						<p><label>Date:</label>  <span>{{ formatDate(mailSelectionne.createdAt) }}</span></p>
 						<p><label>Sujet:</label>  <span>{{ mailSelectionne.sujet }}</span></p>
 					</div>
 					<hr>
@@ -68,7 +68,7 @@
 					<td class="clickable">{{ user.pseudo }}</td>
 					<td class="clickable">{{ Email.desti }}</td>
 					<td class="clickable">{{ Email.sujet }}</td>
-					<td>{{ Email.date }}</td>
+					<td>{{ formatDate(Email.createdAt) }}</td>
 					<td class="clickable"><img src="image/delete.png" ng-click="delete(Email)"></td>
 				</tr>
 			<tbody>

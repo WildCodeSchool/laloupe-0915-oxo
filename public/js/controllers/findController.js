@@ -83,6 +83,7 @@ function findController($scope, $http, $rootScope, userService, findService){
 			}
                 
 			findPlayer();
+			
 	}
     
     function load(){

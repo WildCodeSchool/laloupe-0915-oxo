@@ -13,6 +13,11 @@ function emailController($scope, $http, $rootScope, emailService, userService) {
 		});
 	}
 
+	$scope.formatDate = function(date){
+		moment.locale('fr');
+		return moment(date).format("D MMMM YYYY à HH:mm");
+	}
+
 	$scope.mailSelectionne = null;
 	$scope.mailSlct = function(mail) {
 		$scope.mailSelectionne = mail;
@@ -20,23 +25,11 @@ function emailController($scope, $http, $rootScope, emailService, userService) {
 	}
 
 	$scope.send = function(){
-		
-		var now=new Date();
-		var jour=now.getDate();
-		var mois=now.getMonth()+1;
-		var an=now.getFullYear();
-		var heure=now.getHours();
-		var minute=now.getMinutes();
-		var date= jour+"/"+mois+"/"+an+" - "+heure+":"+minute;
-		$scope.date = date;
-		console.log($scope.date);		
-
 		var account = {};
 		account.name = $scope.nom;
 		account.desti = $scope.desti;
 		account.subject = $scope.sujet;
 		account.msg = $scope.message;
-		account.date = $scope.date; 
 
 		emailService.create(account).then(function(res){
 			load();				

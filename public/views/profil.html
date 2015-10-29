@@ -6,40 +6,31 @@
             <img class="imghome img-responsive center-block" ng-src="{{avatar}}">
             <p>{{ ville }}</p>
         </div>
-        <div class="section panel panel-default">
-            <p>{{sex}}</p>
-            <p>{{teaser}}</p>  
+        <h3>A propos</h3>
+        <div class="section panel panel-default"> 
+            <p>Nom/prénom: {{nom}} {{prenom}}</p>    
+            <p>Habite à {{ ville }}</p>
+            <p>Naissance: {{anniversaire}}</p>
+            <p>Sex: {{sex}}</p>  
+            <p>Présentation: {{teaser}}</p> 
         </div> 
         <div class="section">   
-            <button class="btn btn-primary" ng-click="editUser()">edit</button>
+            <button class="btn btn-primary" ng-click="editUser()">Edit</button>
         </div>
     </div>
     <div class="col-md-6 range">
-        <div class="section panel panel-default">
-            
-            <form class="form-group">
-               <label >Exprimez vous</label>
-               <input class="form-control" type="text">
-               <button class=" btn btn-primary">écrire</button>
-            </form>
-        </div>
-        <h3 class="section">Votre fil d'actualités</h3>
+        <h3 class="section">A propos de moi</h3>
         <div class="section panel panel-default"> 
-            <h3>Bienvenue sur oxo !</h3>
-            <p> L'application qui rapproche les joueurs. Vous voulez trouver des joueurs qui aiment les mêmes jeux que vous et ce, prêt de chez vous ? OXO est là ! Vous pouvez trouver un joueur, un jeux ou modifier votre profil.</p>
+            <h4>Bienvenue sur ton Profil !</h4>
+            <p> Bravo ! Tu viens de créer ta page profil. Tu peux dès à présent compléter ta page à ton goût.</p>
         </div>
     </div>
     <div class="col-md-3 range">
        <div class="section panel panel-default">
-           <h3>Vos Jeux</h3>
+           <h3>Mes Jeux</h3>
             <ul>
                 <li ng-repeat="game in games">{{game.gameName}} - {{game.gamePlateform}}</li>		
             </ul>
-            <button class="btn btn-primary" ng-click='addGame()'>ajouter un jeux</button>
-        </div>
-        <div class="section panel panel-default">
-            <h3>Ma Guild</h3>
-            <button class="btn btn-primary" ng-click=''>ajouter un joueur a ma guild</button>
         </div>
     </div>
 </div>
