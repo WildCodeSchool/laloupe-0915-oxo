@@ -60,6 +60,8 @@
             <ul class="nav navbar-nav">
                 <li ng-if="user" ng-class="{active: activetab=='/find'}"><a href="#/find">Chercher un joueur</a></li>
                 <li ng-if="user" ng-class="{active: activetab=='/VideosGames'}"><a href="#/VideosGames">Chercher un jeu</a></li>
+                <li ng-if="user" ng-class="{active: activetab=='/email'}"><a href="#/email">Messagerie</a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="user" ng-if="user"><a href="#/profil">{{ user.pseudo }}</a></li>
