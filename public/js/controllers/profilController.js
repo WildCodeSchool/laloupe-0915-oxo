@@ -10,6 +10,11 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 			$scope.ville = res.data.ville;
 			$scope.anniversaire = res.data.anniversaire;
             $scope.sex = res.data.sex;
+            $scope.nom = res.data.nom;
+            $scope.prenom = res.data.prenom;
+            $scope.teaser = res.data.description;
+            
+            
 
         });
 
