@@ -70,7 +70,7 @@
 					<tr ng-repeat="Email in EmailsR"  ng-click="mailSlct(Email)">
 						<td class="clickable">{{ Email.pseudo }}</td>
 						<td class="clickable">{{ Email.sujet }}</td>
-						<td>{{ Email.date }}</td>
+						<td>{{ formatDate(Email.createdAt) }}</td>
 						<td class="clickable"><img src="image/delete.png" ng-click="delete(Email)"></td>
 					</tr>
 				<tbody>
@@ -95,7 +95,7 @@
 					<tr ng-repeat="Email in EmailsS"  ng-click="mailSlct(Email)">
 						<td class="clickable">{{ search.pseudo }}</td>
 						<td class="clickable">{{ Email.sujet }}</td>
-						<td>{{ Email.date }}</td>
+						<td>{{ formatDate(Email.createdAt) }}</td>
 						<td class="clickable"><img src="image/delete.png" ng-click="delete(Email)"></td>
 					</tr>
 				<tbody>
