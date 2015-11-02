@@ -2,7 +2,7 @@
 
 function profilController($scope, $http, $rootScope, $location, userService) {
 
-	function load(){
+	//function load(){
 
 		userService.getById($rootScope.user.id).then(function(res){
 			$scope.pseudo = res.data.pseudo;
@@ -23,7 +23,7 @@ function profilController($scope, $http, $rootScope, $location, userService) {
 
      }); 
 
-    }
+    //}
 
     
     $scope.editUser = function() {
@@ -38,7 +38,7 @@ function profilController($scope, $http, $rootScope, $location, userService) {
                 $location.path('/editGames');
             }
     
-    load()
+    //load()
       
 }
 

@@ -31,12 +31,13 @@ function emailController($scope, $http, $rootScope, emailService, userService) {
 	}
 	loadSend();
 
-	function getUsers(){
+	//function getUsers(){
 		userService.get().then(function(res){
 			$scope.users = res.data;
+            console.log($scope.users);
 		});
-	}
-	getUsers();
+	//}
+	//getUsers();
 
 	$scope.msgReceipt = true;
 	$scope.recevoir = function(){

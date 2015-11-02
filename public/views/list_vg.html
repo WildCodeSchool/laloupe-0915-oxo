@@ -1,4 +1,4 @@
-<div class=" case panel panel-default">
+<div class=" case2 panel panel-default">
 <h1>Liste des jeux-vidéos</h1>
 
 
@@ -28,7 +28,7 @@
 	<p>{{(games.results | filter:searchGame.results.platforms.name).length }} <span ng-show="games.results.length > 0">{{(games.results | filter:searchGame.results.platforms.name).length > 1 ? 'resultats' : 'resultat'}} à votre recherche</span></p>
 </div>
 	
-	<div class=" case row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
+	<div class=" case2 row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
 
         <p ng-show="{{'mes' + game.id}}" ng-class=" successMessage ? 'bg-success' : 'bg-danger'">{{message}}</p>
 
