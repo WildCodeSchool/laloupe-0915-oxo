@@ -1,22 +1,23 @@
-<h1>{{ title }}</h1>
+<div class="col-md-offset-3 col-md-6 case1 panel panel-default">
+<h1 class="text-center">{{ title }}</h1>
 <div class="alert alert-warning" ng-hide="!displayError" ng-if="err.length > 0">{{ err }}</div>
 
 <div ng-hide="displayNext">
 	<form class="form-horizontal" name="myform"> 
 	<div class="form-group">
-		<label class="col-sm-1">Ville:</label>
+		<label class="col-sm-2">Ville:</label>
 		<div class="col-sm-10">
-			<input placeholder="Ma ville" ng-model="ville" type="text" name="myfield" ng-minlength="2" required>
+			<input class="form-control" placeholder="Ma ville" ng-model="ville" type="text" name="myfield" ng-minlength="2" required>
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-1">E-mail:</label>
+		<label class="col-sm-2">E-mail:</label>
 		<div class="col-sm-10">
-			<input placeholder="Mon email" ng-pattern="EMAIL_REGEXP" ng-model="field" type="text" required>
+			<input class="form-control" placeholder="Mon email" ng-pattern="EMAIL_REGEXP" ng-model="field" type="text" required>
 		</div>
 	</div>
 	<div class="form-group">
-		<button type="submit" class="btn btn-primary col-sm-3" ng-click="next()" ng-disabled="myform.$invalid">Etape suivante</button>
+		<button type="submit" class="btn btn-primary col-sm-offset-4 col-sm-4" ng-click="next()" ng-disabled="myform.$invalid">Etape suivante</button>
 	</div>	
 	</form>
 </div>
@@ -25,33 +26,34 @@
 <div ng-show="displayNext">
 	<form class="form-horizontal" name="myform2">
 	<div class="form-group" class="has-error">
-		<label class="col-sm-1">Pseudo:</label>
+		<label class="col-sm-2">Pseudo:</label>
 		<div class="col-sm-10">
-			<input placeholder="Minimum 4 caractères" ng-model="pseudo" type="text" name="myfield" ng-minlength="4" required>
+			<input class="form-control" placeholder="Minimum 4 caractères" ng-model="pseudo" type="text" name="myfield" ng-minlength="4" required>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-1">Mot de passe:</label>
+		<label class="col-sm-2">Mot de passe:</label>
 		<div class="col-sm-10">
-			<input id="password" name="password" placeholder="Minimum 6 caractères" ng-model="mdp" type="password" ng-minlength="6">
+			<input class="form-control" id="password" name="password" placeholder="Minimum 6 caractères" ng-model="mdp" type="password" ng-minlength="6">
 			<span class="text-danger" ng-show="myform.password.$error.minlength">
 			</span>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-1">Confirmer:</label>
+		<label class="col-sm-2">Confirmer:</label>
 		<div class="col-sm-10">
-			<input placeholder="Confirmez-le" ng-model="password2" type="password" ng-minlength="0" required>
+			<input class="form-control" placeholder="Confirmez-le" ng-model="password2" type="password" ng-minlength="0" required>
 			<span ng-hide="password2.length > 0"><span ng-show="alertError" class="text-danger">Game Over! Try again !</span></span>
 		</div>
 	</div>
 
 
 	<div class="form-group">
-		<button type="submit" class="btn btn-primary col-sm-3"ng-click="send()"  ng-disabled="myform2.$invalid">Valider</button>
+		<button type="submit" class="btn btn-primary col-sm-offset-4 col-sm-4"ng-click="send()"  ng-disabled="myform2.$invalid">Valider</button>
 	</div>
 	</form>
 
+</div>
 </div>

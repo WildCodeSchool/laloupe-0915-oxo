@@ -10,7 +10,7 @@
         <div class="section panel panel-default"> 
             <p>Nom/prénom: {{nom}} {{prenom}}</p>    
             <p>Habite à {{ ville }}</p>
-            <p>Naissance: {{anniversaire}}</p>
+            <p>Naissance: {{ formatDate(anniversaire) }}</p>
             <p>Sex: {{sex}}</p>  
             <p>Présentation: {{teaser}}</p> 
             <button class="btn btn-primary" ng-click="editUser()">Edit</button>

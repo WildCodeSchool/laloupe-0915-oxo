@@ -15,7 +15,7 @@ var User = db.define('user', {
 	prenom: Sequelize.STRING,
 	avatar: Sequelize.TEXT,
 	sex: Sequelize.STRING,
-	description: Sequelize.STRING(1234)
+	description: Sequelize.STRING( 1234)
 
 
 
@@ -96,7 +96,7 @@ module.exports.findByName = function(req, res, next) {
 		pseudo: req.body.pseudo
 	}}).then(function (data) {
 		if (data)
-			res.status(409).send("Oh le pseudo " + req.body.pseudo + " existe déjà !");
+			res.status(409).send("Oh le pseudo " + req.body.pseudo + " existe déjà !!!");
 		else
 			next();
 	});

@@ -1,6 +1,6 @@
 // formulaire CONTROLLER
 
-function formulaireController($scope, $rootScope, $http, userService, $location) {
+function formulaireController($scope, $rootScope, $http, userService, $location, loginService) {
 	$scope.title = "Level one";
 	$scope.EMAIL_REGEXP = /^[a-zA-Z0-9._]+@[a-z]+\.[a-z.]{2,3}$/;
 
@@ -37,8 +37,11 @@ function formulaireController($scope, $rootScope, $http, userService, $location)
 		if ($scope.mdp === $scope.password2) {
 			userService.create(data).then(function(res){
 				// SUCCESS
-				$rootScope.user = res.data;
-				$location.path('/home');
+                $rootScope.user = res.data;
+                loginService.connect($rootScope.user).then(function(res){
+                   $location.path('/home'); 
+                });
+                
 			}).catch(function(err){
 				//ERROR
 				$scope.displayError = true;
