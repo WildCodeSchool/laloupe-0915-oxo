@@ -24,7 +24,10 @@ function config($routeProvider) {
 
 		.when('/formulaire', {
 			templateUrl: 'views/formulaire.html',
-			controller: 'formulaireController'
+			controller: 'formulaireController',
+			resolve: {
+				connected: checkIsConnected
+			}
 		})
 
 		.when('/find', {
