@@ -1,6 +1,14 @@
 function config($routeProvider) {
 	$routeProvider
 
+		.when('/home', {
+			templateUrl: 'views/home.html',
+			controller: 'homeController',
+			resolve: {
+				connected: checkIsConnected
+			}
+		})
+
 		.when('/', {
 			templateUrl: 'views/login.html',
 			controller: 'loginController'
@@ -8,49 +16,125 @@ function config($routeProvider) {
 
         .when('/VideosGames', {
               templateUrl: 'views/list_vg.html',
-              controller: 'list_vgController'
+              controller: 'list_vgController',
+              resolve: {
+				connected: checkIsConnected
+			}
         })
 
 		.when('/formulaire', {
 			templateUrl: 'views/formulaire.html',
-			controller: 'formulaireController'
+			controller: 'formulaireController',
+			resolve: {
+				connected: checkIsConnected
+			}
 		})
 
 		.when('/find', {
 			templateUrl: 'views/find.html',
-			controller: 'findController'
+			controller: 'findController',
+			resolve: {
+				connected: checkIsConnected
+			}
 		})	
-
-		.when('/home', {
-			templateUrl: 'views/profil.html',
-			controller: 'profilController'
-		})
 
 		.when('/email', {
 			templateUrl: 'views/email.html',
-			controller: 'emailController'
+			controller: 'emailController',
+			resolve: {
+				connected: checkIsConnected
+			}
 		})
 
 		.when('/editUser', {
 			templateUrl: 'views/editUser.html',
-			controller: 'editUserController'
+			controller: 'editUserController',
+			resolve: {
+				connected: checkIsConnected
+			}
 		})
 
 		.when('/editGames', {
 			templateUrl: 'views/editGames.html',
-			controller: 'editGamesController'
+			controller: 'editGamesController',
+			resolve: {
+				connected: checkIsConnected
+			}
 		})	
 
+		.when('/profil', {
+			templateUrl: 'views/profil.html',
+			controller: 'profilController',
+            resolve: {
+				connected: checkIsConnected
+			}
+		})
+    
+        .when('/vueprofil/:id' , {
+            templateUrl: 'views/profilext.html',
+            controller: 'profilextController',
+            resolve: {
+                    connected: checkIsConnected
+                }
+        })
+
 		.otherwise({
-			redirectTo: '/'
+			redirectTo: '/home'
 		});
 }
 
-function run($rootScope, $location){
+function checkIsConnected($q, $http, $rootScope, $location) {
+    var deferred = $q.defer();
+ 
+ 	$http.get('/loggedin').success(function(user){
+ 		// Authenticated 
+ 		if (user !== '0'){
+ 			$rootScope.user = user;
+ 			deferred.resolve();
+ 		}
+ 		else { 
+ 			// Not Authenticated 
+ 			deferred.reject(); 
+ 			$location.url('/'); 
+ 		}
+ 	});
+
+    return deferred.promise;
+};
+
+
+/*function checkIsAdmin($q, $rootScope, $location) {
+    var deferred = $q.defer();
+    
+    if ($rootScope.user && $rootScope.user.admin)
+        deferred.resolve();
+    else{
+        deferred.reject();
+        $location.url('/');
+    }
+
+    return deferred.promise;
+}*/
+
+function run($rootScope, $location, loginService){
+	$rootScope.loginMessage = {};
+	 $rootScope.loginMessage.title = ''; 
+	 $rootScope.loginMessage.message = ''; 
+	// Watch path
 	var path = function() { return $location.path(); };
 	$rootScope.$watch(path, function(newVal, oldVal){
 		$rootScope.activetab = newVal;
 	});
+
+	// Logout
+	$rootScope.logout = function(){
+		$rootScope.user = null;
+		$rootScope.loginMessage.title = ''; 
+		$rootScope.loginMessage.message = ''; 
+		loginService.disconnect().then(function(){
+			$location.url('/');
+		})
+	}
 }
 
 angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
@@ -61,9 +145,11 @@ angular.module('app', ['ngRoute', 'ngMessages', 'ngResource'])
     .controller('emailController', emailController)
     .controller('formulaireController', formulaireController)
   	.controller('findController', findController)
+    .controller('homeController', homeController)
     .controller('profilController', profilController)
     .controller('editUserController', editUserController)
     .controller('editGamesController', editGamesController)
+    .controller('profilextController', profilextController)
 
     .service('list_vgService', list_vgService)
     .service('findService', findService)

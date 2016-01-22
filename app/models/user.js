@@ -15,7 +15,7 @@ var User = db.define('user', {
 	prenom: Sequelize.STRING,
 	avatar: Sequelize.TEXT,
 	sex: Sequelize.STRING,
-	description: Sequelize.STRING(1234)
+	description: Sequelize.STRING( 1234)
 
 
 
@@ -43,16 +43,15 @@ module.exports.create = function(req, res) {
 };
 
 
-module.exports.login = function(req, res) {
-	User.findOne({
+module.exports.login = function(pseudo, mdp) {
+	return User.findOne({
 		where:{
-			pseudo: req.body.pseudo,
-			mdp: req.body.mdp
+			pseudo: pseudo,
+			mdp: mdp
 		}
-	}).then(function (data) {
-		res.json(data);
 	});
 };
+
 
 module.exports.findAll = function(req, res) {
 	User.findAll().then(function (data) {
@@ -97,7 +96,7 @@ module.exports.findByName = function(req, res, next) {
 		pseudo: req.body.pseudo
 	}}).then(function (data) {
 		if (data)
-			res.status(409).send("Oh le pseudo " + req.body.pseudo + " existe déjà !");
+			res.status(409).send("Oh le pseudo " + req.body.pseudo + " existe déjà !!!");
 		else
 			next();
 	});

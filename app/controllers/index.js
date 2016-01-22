@@ -1,6 +1,6 @@
 // CONTROLLERS
 
-module.exports 	= function(app) {
+module.exports 	= function(app, passport) {
 
 	'use strict';
   	var fs   = require('fs');
@@ -27,7 +27,7 @@ module.exports 	= function(app) {
 		// do not require index.js (this file)
 		if (controller !== 'index') {
 		  // require the controller
-		  require('./' + controller)(app);
+		  require('./' + controller)(app, passport);
 		}
 	}
 }

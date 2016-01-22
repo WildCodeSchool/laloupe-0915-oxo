@@ -1,4 +1,4 @@
-<div class=" case panel panel-default">
+<div class=" case2 panel panel-default">
 <h1>Liste des jeux-vidéos</h1>
 
 
@@ -6,7 +6,7 @@
 <form class="form-inline searchGame">
     <input  class="form-control searchGame" placeholder="ex: Battlefront, Fifa, ..." ng-model="jeux" type="text" name="jeux" ng-disabled="loadingInProgress">
     <button class="btn btn-primary searchGame" ng-click="get()" ng-disabled="loadingInProgress">Chercher</button>
-    <select class="form-control  searchGame" ng-model="searchGame.results.platforms.name" ng-disabled="loadingInProgress">
+    <select class="form-control  searchGame" ng-model="searchGame.results.platforms.name">
         <option value="">Trier par plateforme</option>
         <option value="PC">PC</option>
         <option value="Playstation 4">Playstation 4</option>
@@ -28,13 +28,13 @@
 	<p>{{(games.results | filter:searchGame.results.platforms.name).length }} <span ng-show="games.results.length > 0">{{(games.results | filter:searchGame.results.platforms.name).length > 1 ? 'resultats' : 'resultat'}} à votre recherche</span></p>
 </div>
 	
-	<div class=" case row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
+	<div class=" case2 row panel panel-default" ng-repeat="game in games.results | orderBy: '-original_release_date' | filter:searchGame.results.platforms.name">
 
         <p ng-show="{{'mes' + game.id}}" ng-class=" successMessage ? 'bg-success' : 'bg-danger'">{{message}}</p>
 
 
 
-        <h3 class="titre">{{ game.name }} -   <span class="date">{{game.original_release_date}}</span></h3 >
+        <h3 class="titre">{{ game.name }} - <span class="date">{{game.original_release_date}}</span></h3 >
         <div class="col-md-2">
             <img class="gameIcon" src="{{game.image.thumb_url}} ">
         </div>

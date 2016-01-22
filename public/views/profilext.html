@@ -10,26 +10,24 @@
         <div class="section panel panel-default"> 
             <p>Nom/prénom: {{nom}} {{prenom}}</p>    
             <p>Habite à {{ ville }}</p>
-            <p>Naissance: {{ formatDate(anniversaire) }}</p>
+            <p>Naissance: {{anniversaire}}</p>
             <p>Sex: {{sex}}</p>  
             <p>Présentation: {{teaser}}</p> 
-            <button class="btn btn-primary" ng-click="editUser()">Edit</button>
         </div> 
     </div>
     <div class="col-md-6 range">
-        <h3 class="section">A propos de moi</h3>
+        <h3 class="section">A propos de {{pseudo}}</h3>
         <div class="section panel panel-default"> 
-            <h4>Bienvenue sur ton Profil !</h4>
-            <p> Bravo ! Tu viens de créer ta page profil. Tu peux dès à présent compléter ta page à ton goût.</p>
+            <h4>Info utile</h4>
+            <p> {{pseudo}} n'a pas encore publié d'actualités</p>
         </div>
     </div>
     <div class="col-md-3 range">
        <div class="section panel panel-default">
-           <h3>Mes Jeux</h3>
+           <h3>Ses Jeux</h3>
             <ul>
                 <li ng-repeat="game in games">{{game.gameName}} - {{game.gamePlateform}}</li>		
             </ul>
-            <button class="btn btn-primary bt" ng-click="editGames()">Delete</button>
         </div>
     </div>
 </div>

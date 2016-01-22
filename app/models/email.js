@@ -8,12 +8,11 @@ var Email = db.define('email', {
 	nom: Sequelize.STRING,
 	desti: Sequelize.STRING,
 	sujet:Sequelize.STRING,
-	message: Sequelize.STRING,
-	date: Sequelize.STRING
+	message: Sequelize.STRING
 });
 
 
-Email.sync().then(function(){});
+Email.sync({force:true}).then(function(){});
 //rentrer ici les colonnes a créer
 
 
